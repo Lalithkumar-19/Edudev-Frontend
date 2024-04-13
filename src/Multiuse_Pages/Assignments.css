@@ -1,0 +1,12 @@
+.assignments{
+display: flex;
+flex-direction: column;
+width: 100%;
+background-color: white;
+.assignment_details{
+    text-align: justify;
+    padding: 10px;
+    line-height: 20px;
+    word-break: keep-all;
+}
+}

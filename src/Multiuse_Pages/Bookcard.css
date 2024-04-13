@@ -1,0 +1,124 @@
+.bookcard {
+    display: flex;
+    flex-direction: column;
+    max-width: 290px;
+    min-width: 290px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px;
+    min-height: 400px;
+
+    .bookcard_top {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        position: relative;
+
+        .book_pic {
+            width: 100%;
+            height: 250px;
+        }
+
+        .book_offer {
+            color: white;
+            background-color: coral;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 70px;
+            height: 24px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-right-radius: 8px;
+
+
+        }
+
+    }
+
+    .book_details {
+        display: flex;
+        flex-direction: column;
+        padding: 2px 0px;
+
+        .book_name {
+            font-size: 18px;
+            font-weight: 700;
+            width: 100%;
+            margin-left: 0px;
+            margin-bottom: 2px;
+            text-align: start;
+            overflow: hidden;
+            line-height: 19px;
+            height: 40px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .about_book {
+            text-align: justify;
+            line-height: 22px;
+            height: 60px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;             
+
+        }
+
+        .book_cost {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 8px;
+            padding: 0px 2px;
+
+            .full_cost {
+                text-decoration: line-through;
+                color: grey;
+            }
+
+            .actual_cost {
+                color: coral;
+
+            }
+        }
+
+        .book_buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 12px;
+            margin-bottom: 6px;
+
+            .add_to_card {
+                width: 120px;
+                height: 30px;
+                background-color: coral;
+                color: white;
+                border-radius: 13px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            .review_stars {
+                display: flex;
+                flex-direction: row;
+            }
+
+
+        }
+    }
+
+
+}

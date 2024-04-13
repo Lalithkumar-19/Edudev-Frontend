@@ -1,0 +1,115 @@
+.featured_courses {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured_courses .category_heading::after {
+    content: "";
+    display: block;
+    width: 100%;
+    background-color: tomato;
+    height: 2px;
+    bottom: 0px;
+    left: 0px;
+    margin-top: 2px;
+
+}
+
+.featured_courses .category_title_box {
+
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured_courses .category_title_box .category_sub_quote {
+    width: 100%;
+    text-align: center;
+    opacity: 0.8;
+    line-height: 20px;
+    word-spacing: 1px;
+}
+
+
+
+.categotyitem_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.categotyitem_box .categoty_item {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border: 1px solid #fdbb2d;
+    margin: 20px;
+
+}
+
+.categotyitem_box .categoty_item:hover {
+    background-color: tomato;
+    color: white;
+}
+
+.categotyitem_box .categoty_item img {
+    width: 30px;
+    height: 30px;
+    background-color: pink;
+    border-radius: 5px;
+    border: 2px solid pink;
+    margin-right: 10px;
+}
+
+.categotyitem_box .categoty_item .categoryitem_course_details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+}
+
+
+.featured_courses .courses_box {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 19px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+
+@media(width<=600px) {
+    .featured_courses .courses_box {
+        gap: 10px;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+    }
+
+
+    .featured_courses .category_title_box .category_sub_quote {
+        width: 70%;
+    }
+
+}

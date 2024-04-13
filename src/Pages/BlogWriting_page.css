@@ -1,0 +1,73 @@
+    .Blog_writer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .blog_editor_title {
+            font-size: 24px;
+            color: coral;
+        }
+
+        .dropzone {
+            border: 2px dashed #cccccc;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .images_preview {
+            margin-top: 20px;
+            margin: 0 auto;
+
+            & img {
+                max-width: 100%;
+                max-height: 200px;
+            }
+
+        }
+
+        .title_input_box,.tags_input_box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 20px;
+            padding: 12px;
+
+            .input_tilte_heading {
+                font-weight: bold;
+                margin-bottom: 3px;
+            }
+
+            & input {
+                border-radius: 10px;
+                border: none;
+                width: 80%;
+                height: 19px;
+                outline-style: none;
+                text-indent: 5px;
+
+            }
+        }
+
+        .submit_button {
+            width: 120px;
+            padding: 20px;
+            background-color: green;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            margin: 0 auto;
+            margin-top: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .submit_button:hover {
+            background: radial-gradient(green, coral);
+        }
+    }

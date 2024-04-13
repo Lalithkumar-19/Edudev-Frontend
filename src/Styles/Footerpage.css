@@ -1,0 +1,231 @@
+.Contactpage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    background-color: #000;
+    margin-top: 30px;
+    margin-bottom: 0px;
+
+    .contactpage_main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .company_logo {
+            width: 70px;
+            text-align: center;
+            display: flex;
+            align-self: baseline;
+            justify-content: start;
+
+        }
+
+        .company_links {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+            gap: 12px;
+            align-self: flex-start;
+
+            .links_title {
+                margin-left: 0px;
+                color: white;
+            }
+
+            .all_links {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                color: grey;
+
+                .link {
+                    color: grey;
+                }
+
+            }
+
+
+        }
+
+        .company_legals {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-self: flex-start;
+
+
+
+            .all_legals {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                color: white;
+                font-size: .8rem !important;
+                line-height: normal;
+                letter-spacing: -0.5px;
+
+            }
+
+
+        }
+
+        .news_letter {
+            display: flex;
+            flex-direction: column;
+            max-width: 290px;
+            min-width: 150px;
+            gap: 10px;
+            align-self: flex-start;
+            flex-wrap: wrap;
+            margin-top: 17px;
+
+            .news_letter_head_line {
+                font-size: 20px;
+                font-weight: 800;
+                
+            }
+
+            .news_letter_sub_head_line {
+                color: grey;
+            }
+
+            .input_div {
+                display: flex;
+                flex-direction: row;
+                width: 400px;
+                flex-wrap: wrap;
+
+                .email_input {
+                    border: none;
+                    outline-style: none;
+                    height: 40px;
+                    width: 70%;
+                    flex: 0 1 150px;
+
+                }
+
+                .email_button {
+                    color: white;
+                    background-color: black;
+                    border: none;
+                    outline-style: none;
+                    cursor: pointer;
+                    flex: 0 1 120px
+                }
+
+            }
+
+
+        }
+    }
+
+    .contact_footer {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 3rem;
+
+        .main_policy {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            color: grey;
+            font-size: .9em;
+
+
+        }
+       
+
+
+        .rights_reserved {
+            color: grey;
+
+            @media (width<=600px) {
+                font-size: 8px;
+                text-align: center;
+
+
+
+            }
+        }
+
+
+
+    }
+
+}
+
+
+.link a {
+    color: grey;
+    text-decoration: none;
+}
+
+
+@media (360px<=width<=900px) {
+    .Contactpage {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        height: max-content;
+
+        .contactpage_main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+
+            .news_letter {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                margin-top: 25px;
+                /* background-color: aqua; */
+
+                .news_letter_head_line {
+                    text-align: center;
+                    width: 100%;
+                    overflow-x: hidden;
+                    text-decoration: underline;
+
+
+                }
+            }
+        }
+
+        .contact_footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            .main_policy {
+                font-size: 12px;
+
+                .privacy {
+                    font-size: 13px;
+                    width: max-content;
+                }
+
+                .contact_us {
+                    font-size: 13px;
+
+                }
+            }
+
+           
+        }
+    }
+
+
+}

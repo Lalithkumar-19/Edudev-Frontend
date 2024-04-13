@@ -1,0 +1,115 @@
+html {
+    overflow-x: hidden;
+}
+
+.blogspage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.blogspage .blogs_showing_section {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.blogspage .blogs_showing_section .blog_banner_div .backdrop_div .uploaded_date {
+    font-size: 12px;
+    position: absolute;
+    color: #fff;
+    left: 6px;
+    font-weight: 700;
+    background-color: #000;
+    border-radius: 2px;
+    z-index: 300;
+    bottom: 10px;
+}
+
+.blogspage .blogs_showing_section .blog_banner_div {
+    max-width: 300px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* clip-path: circle(220px); */
+    margin-bottom: 30px;
+
+}
+
+.blogspage .blogs_showing_section .blog_banner_div .backdrop_div {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.blogspage .blogs_showing_section .blog_banner_div .backdrop_div .backdrop_pic {
+    width: 100%;
+    height: 200px;
+    border-radius: 13px;
+    position: relative;
+
+}
+
+.blogspage .blogs_showing_section .blog_banner_div .About_blog {
+    width: 100%;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogspage .blogs_showing_section .blog_banner_div .About_blog .About_blog_heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    text-align: start;
+    text-decoration: underline;
+    opacity: 0.8;
+
+}
+
+.blogspage .blogs_showing_section .blog_banner_div .About_blog .About_blog_text {
+    font-size: 13px;
+    font-weight: 400;
+    width: 97%;
+    color: #000;
+    text-align: justify;
+    line-height: 17px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    opacity: 0.7;
+    overflow: hidden;
+}
+
+
+@media(width<=600px) {
+
+
+    .blogspage .blogs_showing_section .uploaded_date {
+
+        bottom: 120px;
+    }
+
+    .blogspage .blogs_showing_section .blog_banner_div {
+        clip-path: none;
+    }
+}
+
+@media (width>=1200px) {
+    .blogspage .blogs_showing_section {
+        width: 90%;
+    }
+
+}

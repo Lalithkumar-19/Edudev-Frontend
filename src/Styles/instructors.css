@@ -1,0 +1,17 @@
+.instructors{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.instructors .our_instructors{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+}

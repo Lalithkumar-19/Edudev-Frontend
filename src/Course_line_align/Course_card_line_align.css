@@ -1,0 +1,112 @@
+.course_card_align_two {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 15px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    justify-content: center;
+    margin-top: 30px;
+
+    .course_backdrop {
+        width: 30%;
+        height: 200px;
+        position: relative;
+
+        @media(width<=600px) {
+            height: 230px;
+        }
+
+        .level_of_learning {
+            background-color: coral;
+            padding: 8px;
+            border-radius: 10px;
+            width: 60px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: white;
+        }
+    }
+
+    .course_card_align_two_details {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: 6px;
+        padding: 6px 12px;
+
+        .course_creator_main_details {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+
+            .course_creator_pic_div {
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                margin-right: 10px;
+            }
+
+
+        }
+
+        .course_name {
+            margin-left: 0px;
+            margin-bottom: 8px;
+        }
+
+        .course_meta_details {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+
+            .item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                .item_name {
+                    @media (width<=600px) {
+                        font-size: 10px;
+                    }
+                }
+            }
+            .item3 {
+                .item_name {
+                    @media(width<=600px) {
+                        font-size: 13px;
+    
+                    }
+                }
+            }
+        }
+
+        .course_price_and_buy_button_div {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+
+            .course_price {
+                font-size: 18px;
+                color: coral;
+            }
+
+            .buy_now {
+                width: 100px;
+            }
+
+        }
+
+
+
+    }
+
+}

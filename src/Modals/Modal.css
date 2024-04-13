@@ -1,0 +1,92 @@
+#modal-modal-description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .modal_label{
+        font-size: 17px;
+        font-weight: 600;
+
+    }
+    .modal_input{
+        height: 38px;
+        border: none;
+        outline: none;
+        background-color: gainsboro;
+        width: 100%;
+        border-radius: 5px;
+        text-indent: 5px;
+
+    }
+    .modal_submit_button{
+        width: 130px;
+        align-self: flex-end;
+    }
+    .gender_inputs_div{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .modal_input_radio{
+            width: 20px;
+            height: 20px;
+            accent-color: white;
+        }
+    }
+    .cancle_button{
+        color: coral;
+        top: -30px;
+        left: 48%;
+        cursor: pointer;
+        position: absolute;
+        @media(width<=600px){
+            left: 41%;
+        }
+    }
+}
+#modal_main_div{
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    top: 30px;
+    margin: 0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 20px;
+
+ 
+
+}
+#modal_main_div::-webkit-scrollbar{
+    display: none; 
+
+}
+
+#modal_inner_main{
+    background-color: white;
+    padding: 0px 19px;
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+
+& h1{
+    margin-left: 0px;
+    margin-right: 12px;
+    color: black;
+    margin-top: 30px;
+   
+}
+}
+
+#modal_text_area{
+    width: 100%;
+    resize: none;
+    height: 60px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: gainsboro;
+    text-indent: 5px;
+}

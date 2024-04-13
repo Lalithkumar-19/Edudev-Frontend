@@ -1,0 +1,45 @@
+.comment_temp {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    min-width: 300px;
+    justify-content: center;
+    margin-top: 26px;
+
+    .commenter_info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 100%;
+
+        .commenter_info_profile {
+            width: 50px;
+            height: 50px;
+        }
+
+        .commenter_info_details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+
+    }
+
+    .commented_text {
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .comment_reactions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+
+
+}

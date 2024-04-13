@@ -1,0 +1,104 @@
+.user_profile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+& h2{
+    font-size: 20px;
+    color: coral;
+}
+
+    .user_details {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 12px;
+
+        & img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+
+        .input_divs {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            gap: 10px;
+
+
+            .input_item {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 5px;
+                align-items: center;
+                justify-content: space-between;
+
+                & label {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                    font-weight: 600;
+                    width: 200px;
+                    border: 1px solid gainsboro;
+                    color: #008080;
+
+                }
+
+                & input {
+                    width: 99%;
+                    border: 1px solid green;
+                    outline: none;
+                    height: 24px;
+                    border-radius: 10px;
+
+
+                }
+
+                & textarea {
+                    resize: none;
+                    border: none;
+                    outline: none;
+                    height: 80px;
+                    width: 100%;
+                }
+
+                & span {
+                    color:#0000FF;
+                    /* text-indent: 10px; */
+                    width: 350px;
+
+                }
+            }
+        }
+
+
+    }
+}
+#skills_input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & label{
+        font-size: 24px;
+        text-align: center;
+
+    }
+}
+
+#skills_showing{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 20px;
+}
+
+#skill_shower_input{
+    display: flex;
+    gap: 3px;
+    & input{
+        width: 150px;
+        text-indent: 4px;
+    }
+}

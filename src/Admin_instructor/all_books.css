@@ -1,0 +1,25 @@
+.all_books{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    .main_books_admin_section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 12px;
+        .books_page_title{
+            color:green;
+            text-align: center;
+        }
+        .books_div{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+
+        }
+    }
+}

@@ -1,0 +1,367 @@
+.course_list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media(width<=600px) {
+        position: relative;
+    }
+
+    .course_list_header {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 15px;
+        margin-bottom: 30px;
+
+        .course_list_header_title {
+            margin-left: 0px;
+            margin-bottom: 5px;
+        }
+
+        .course_list_header_sub_title {
+            .course_list_header_sub_sub_title {
+                color: coral;
+            }
+        }
+    }
+
+    .course_list_main {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0px 12px;
+
+        .course_list_main_left {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: max-content;
+
+
+            @media(601px<=width<=990px) {
+                width: 20%;
+                padding: 9px 10px;
+            }
+
+            .course_list_main_left_search_bar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+
+                .search_input {
+                    width: 100%;
+                    height: 30px;
+                    outline-style: none;
+                    border: none;
+                    border-radius: 10px;
+                    border-top-right-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    background-color: gainsboro;
+                }
+
+                .search_icon {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+
+            }
+
+            .all_filters {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+
+                @media(width<=600px) {
+                    position: fixed;
+                    top: 1px;
+                    left: 1px;
+                    background-color: white;
+                    z-index: 200;
+                    padding: 10px;
+                    display: none;
+                    height: 400px;
+                    border-bottom: 1px solid coral;
+                    overflow-y: scroll;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+
+
+                }
+
+                .top_categories_filter,
+                .top_instructors_filter,
+                .license_filter {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 10px;
+
+                    .top_categories_title,
+                    .top_instructos_title,
+                    .license_filter_title {
+                        margin-left: 0px;
+                        margin-bottom: 4px;
+                    }
+
+                    .categoty_filter_item {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 10px;
+                        background-color: gainsboro;
+                        width: 90%;
+                        padding: 10px;
+                        border-radius: 9px;
+                    }
+
+
+                }
+
+                .price_filter {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    .price_filter_title {
+                        margin-left: 0px;
+
+                    }
+
+                    .price_filter_input {
+                        width: 90%;
+                    }
+                }
+
+                .rating_filter {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    .rating_filter_title {
+                        margin-left: 0px;
+                        margin-bottom: 4px;
+                    }
+
+                    .categoty_filter_item {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 10px;
+                        width: 100%;
+                        padding: 2px 0px;
+                        border-radius: 9px;
+                    }
+                }
+            }
+        }
+
+        .course_list_main_right {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            align-items: flex-start;
+            padding: 0px 12px;
+            height: auto;
+
+            @media(601px<=width<=990px) {
+                width: 73%;
+            }
+
+            .course_list_main_right_top {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 50px;
+                background-color: white;
+                padding: 0px 5px;
+                border-radius: 10px;
+                align-items: center;
+                justify-content: space-between;
+
+                .course_list_main_right_top_filtered_results {
+                    font-weight: 600;
+                    opacity: .8;
+
+                    @media(width<=600px) {
+                        font-size: 10px;
+                    }
+                }
+
+                .right_top_filters {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+
+                    .sort_by {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        border-radius: 3px;
+                        border: 1px solid;
+                        height: 20px;
+                        padding: 5px;
+                        gap: 5px;
+
+                        .sort_by_select_input {
+                            border: none;
+                            outline-style: none;
+                            width: 100px;
+                            text-align: center;
+                            cursor: pointer;
+
+                            .sort_by_select_input_option {
+                                background-color: coral;
+                                color: #ffffff;
+                                padding: 5px;
+                                cursor: pointer;
+                                height: 40px;
+                            }
+                        }
+                    }
+
+                    .view_type_one,
+                    .view_type_two {
+                        border: 1px solid;
+                        border-radius: 3px;
+                        cursor: pointer;
+                    }
+
+                    .filters_for_sm_screen {
+                        border: 1px solid;
+                        border-radius: 3px;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            .course_list_main_right_bottom {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: auto;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+
+
+
+
+            }
+
+        }
+    }
+
+
+
+}
+
+
+#checkboxes {
+    width: 30px;
+    height: 20px;
+    accent-color: gainsboro;
+    cursor: pointer;
+}
+
+#checkboxes:checked {
+    background-color: coral;
+    color: #ffffff;
+}
+
+#checkboxes:checked {
+    background-color: coral;
+    accent-color: coral;
+}
+
+
+input[type=range] {
+    accent-color: coral;
+
+}
+
+#pagination {
+    display: flex;
+    flex-direction: row;
+}
+
+#categoty_filter_item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#sort_by {
+    text-align: center;
+    font-size: 10px;
+    width: fit-content;
+
+    .sort_title {
+        width: 40px;
+    }
+
+    .sort_by_select_input {
+        font-size: 10px;
+    }
+}
+
+@media(width<=600px) {
+    .course_list {
+        width: 100%;
+
+        .course_list_header {
+            padding: 2px;
+        }
+
+        .course_list_main {
+            width: 100%;
+            padding: 0px;
+            flex-direction: column;
+
+            .course_list_main_left {
+                width: 100%;
+                padding: 12px 5px;
+            }
+
+            .course_list_main_right {
+                width: 100%;
+                padding: 0px;
+
+                .course_list_main_right_top {
+                    width: 98%;
+
+                    .course_list_main_right_top_filtered_results {
+                        text-align: center;
+                        font-size: 13px;
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

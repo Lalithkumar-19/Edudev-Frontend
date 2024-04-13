@@ -1,0 +1,22 @@
+.notice_board{
+    display: flex;
+    flex-direction: column;
+    .notice_info{
+        width: 70%;
+        text-align: justify;
+        padding: 20px;
+        border-radius: 10px;
+        border: .5px solid coral;
+        border-left: 7px solid coral;
+        text-overflow: ellipsis;
+        color: black;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 546;
+        @media(width<=800px){
+            width: 80%;
+        }
+
+    }
+
+}

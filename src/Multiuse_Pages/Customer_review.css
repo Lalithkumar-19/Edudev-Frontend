@@ -1,0 +1,54 @@
+.customer_review{
+    width: 350px;
+    height: 190px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color:white ;
+
+ .review_content {
+    width: 80%;
+    text-align: center;
+    font-size: 15px;
+}
+
+ .student_details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: flex-start;
+    justify-content: start;
+
+}
+
+ .student_details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+.customer_pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 1px;
+}
+ .about_student {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    justify-content: left;
+    margin-left: 8px;
+
+}
+
+
+
+  
+ }
+}

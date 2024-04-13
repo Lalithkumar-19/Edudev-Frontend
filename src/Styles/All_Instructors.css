@@ -1,0 +1,70 @@
+.all_instructors {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+
+    .all_instructors_header {
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+
+        .all_instructors_title {
+            margin-left: 0px;
+            margin-bottom: 3px;
+
+        }
+
+        .all_instructors_sub_title {
+            display: flex;
+            gap: 2px;
+
+            .all_instructors_sub_sub_title {
+                color: coral;
+            }
+        }
+
+    }
+
+    .all_instructors_main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        background-color: white;
+        margin-top: 30px;
+        width: 100%;
+        padding: 20px;
+        overflow-x: hidden;
+        @media(width<=600px){
+            padding: 20px 0px;
+        }
+
+      
+    }
+    .pagination{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 2px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        .paginate_button{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:gainsboro;
+            align-self: center;
+            border-radius: 100%;
+            cursor: pointer;
+            &:hover{
+                background-color: coral;
+            }
+        }
+    }
+
+}

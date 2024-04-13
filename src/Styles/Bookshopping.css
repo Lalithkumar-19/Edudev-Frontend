@@ -1,0 +1,278 @@
+.bookshopping {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+
+    @media(width<=600px) {
+        padding: 0px 2px;
+    }
+
+    .book_shopping_title {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+
+        .sub-title {
+            display: flex;
+            width: 100%;
+
+        }
+    }
+
+    .best_seller_books {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        margin-top: 12px;
+
+
+        .best_seller_books_title {
+            text-align: center;
+            width: 100%;
+            font-size: 23px;
+            margin-left: 0px;
+        }
+
+        .best_seller_books_section {
+            padding: 0px;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            @media(width<=600px){
+                padding: 0px;
+            }
+        }
+
+    }
+
+    .best_seller_books_of_the_month {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+
+        .books_pic_main_div {
+            width: 50%;
+            background-color: aqua;
+            height: 400px;
+        }
+
+        .best_seller_books_right {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            background-color: cadetblue;
+            align-items: start;
+            justify-content: center;
+            gap: 14px;
+            padding: 24px;
+
+            @media (width<=600px) {
+                padding: 3px;
+
+            }
+
+            .heading {
+                font-weight: 800;
+                font-size: 23px;
+                color: white;
+            }
+
+            .book_desc {
+                text-align: justify;
+                line-height: 22px;
+                color: white;
+                text-overflow: ellipsis;
+            }
+
+            .book_rate {
+                color: white;
+                margin-bottom: 2px;
+            }
+
+            .buy_now_button {
+                color: white;
+                background-color: coral;
+                width: 160px;
+                height: 40px;
+                border: none;
+                cursor: pointer;
+                border-radius: 12px;
+            }
+
+
+        }
+    }
+
+    .all_e_products {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 50px;
+        border-radius: 20px;
+        background-color: floralwhite;
+
+
+        .all_e_products_left {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 50%;
+            padding: 30px;
+            gap: 13px;
+            justify-content: center;
+
+            .all_e_products_left_head_title {
+                font-size: 24px;
+                font-weight: 600;
+
+            }
+
+            .all_e_products_left_desc {
+                text-align: justify;
+                line-height: 23px;
+            }
+
+            .see_our_products_button {
+                width: 160px;
+                height: 40px;
+                border-radius: 12px;
+                border: none;
+                color: white;
+                background-color: coral;
+                cursor: pointer;
+            }
+
+        }
+
+        .all_e_products_right {
+            width: 50%;
+            height: 300px;
+            display: flex;
+            align-items: end;
+
+        }
+    }
+
+    .new_releases {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-top: 30px;
+        width: 100%;
+        background-color: white;
+
+        .new_releases_title {
+            text-align: center;
+            margin-left: 0px;
+        }
+
+        .new_releases_books {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+    .our_customers {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 30px;
+        align-items: center;
+        justify-content: center;
+
+        .our_customers_title {
+            width: 100%;
+            margin-left: 0px;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: underline;
+            text-underline-offset: 5px;
+            outline-offset: 4px;
+        }
+
+        .our_customer_reviews {
+            padding: 0px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            /* background-color: aqua; */
+        }
+    }
+
+    .see_all_products_footer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 30px;
+        border-radius: 20px;
+
+        background-color: cornsilk;
+
+
+        .see_all_products_footer_left {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .heading {
+                font-size: 24px;
+                font-weight: 700;
+
+            }
+
+            .heading_desc {
+                text-align: justify;
+                line-height: 20px;
+                max-width: 300px;
+            }
+
+            .see_our_products {
+                width: 190px;
+                height: 40px;
+                color: white;
+                background-color: coral;
+                border: none;
+                border-radius: 17px;
+                cursor: pointer;
+                outline-style: none;
+
+                @media(width<=800px) {
+                    align-self: flex-start;
+
+                }
+            }
+        }
+
+        .see_all_products_footer_right {
+            width: 50%;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+
+    }
+}

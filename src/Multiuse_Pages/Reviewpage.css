@@ -1,0 +1,288 @@
+.review_page {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .ratings {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 12px;
+
+        .overall_rating {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            box-sizing: content-box;
+            margin-left: 16px;
+            padding: 10px;
+        }
+
+        .ratings_indicators {
+            display: flex;
+            flex-direction: row;
+
+            .rating_bars {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                margin-top: 12px;
+                margin-left: 20px;
+                margin-bottom: 12px;
+
+                .main_rate_bar {
+                    display: block;
+                    width: 350px;
+                    height: 5px;
+                    background-color: grey;
+
+                    .inner_rate_bar {
+                        display: block;
+                        background-color: coral;
+                        width: 90%;
+                        height: 100%;
+                    }
+                }
+
+
+            }
+
+            .rating_stars {
+                margin-left: 20px;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+.review_page .recent_reviews h1 {
+    text-align: start;
+    margin-left: 0px;
+    margin-top: 30px;
+
+}
+
+.review_page .recent_reviews .main_reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+    .student_reviews_left_box {
+        width: 100%;
+        height: 140px;
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 20px;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+.review_page .recent_reviews .main_reviews .student_reviews_left_box p {
+    width: 80%;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.review_page .recent_reviews .main_reviews .student_reviews_left_box .student_details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: flex-start;
+    justify-content: start;
+
+}
+
+.review_page .recent_reviews .student_reviews_left_box .student_details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.review_page .recent_reviews .student_reviews_left_box .student_details img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-right: 1px;
+}
+
+.review_page .recent_reviews .student_reviews_left_box .student_details .about_student {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    justify-content: left;
+    margin-left: 8px;
+
+}
+
+.review_page .recent_reviews .all_Reviews {
+    display: flex;
+    flex-direction: row;
+    width: 47%;
+    align-items: start;
+    justify-content: center;
+    justify-content: end;
+    text-align: center;
+
+}
+
+.review_page .recent_reviews .all_Reviews .click_button {
+    border: 1px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    background-color: tomato;
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+
+@media(width<=600px) {
+    .review_page {
+        gap: 10px;
+
+        .review_page_title {
+            text-align: center;
+            background-color: gainsboro;
+            margin-bottom: 20px;
+        }
+
+        .ratings {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0px;
+
+            .overall_rating {
+                width: 86%;
+            }
+            .ratings_indicators{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                .rating_bars{
+                    width: 100%;
+                    .main_rate_bar{
+                        width:230px ;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+        .recent_reviews {
+            width: 100%;
+            gap: 12px;
+            height: max-content;
+
+            .recent_reviews_title {
+                text-align: center;
+                background-color: gainsboro;
+                margin-bottom: 20px;
+            }
+
+            .main_reviews {
+                margin-top: 10px;
+                height: max-content;
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+
+                .student_reviews_left_box {
+                    align-self: center;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 30px;
+
+                    .student_details {
+                        align-self: center;
+                        width: 80%;
+                    }
+                }
+
+            }
+        }
+    }
+
+
+}
+
+@media(601px<=width<=990px) {
+    .review_page {
+        gap: 10px;
+
+        .ratings {
+            margin-top: 10px;
+            padding: 0px;
+            width: 100%;
+
+            .ratings_indicators {
+                padding: 0px;
+                margin-left: 0px;
+                gap: 9px;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                .rating_bars {
+                    width: 50%;
+                    margin-left: 0px;
+
+                    .main_rate_bar {
+                        width: 180px;
+                    }
+                }
+
+                .rating_stars {
+                    width: 50%;
+                }
+
+            }
+        }
+
+        .recent_reviews {
+            width: 100%;
+            gap: 12px;
+            height: max-content;
+
+            .main_reviews {
+                margin-top: 10px;
+                gap: 12px;
+                height: max-content;
+
+
+            }
+        }
+    }
+}

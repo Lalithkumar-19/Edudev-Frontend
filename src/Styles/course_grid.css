@@ -1,0 +1,55 @@
+.course_grid{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.course_grid .course_grid_header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+   height: 130px;
+}
+.course_grid .course_grid_header .course_grid_header_sec_1{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    text-align: center;
+    padding-top: 40px;
+}
+.course_grid .course_grid_header .course_grid_img_div{
+    display: flex;
+    flex-direction: row;
+    background: url("https://www.aihr.com/wp-content/uploads/Learning-and-development.png");
+    width: 120px;
+    height:100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+background-position: center;
+border-radius: 10px;
+}
+
+
+
+.course_grid .main_Courses{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
+.course_grid .main_Courses .courses_filters{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: aqua;
+
+}
+
+.course_grid .main_Courses .filtered_Courses{
+    display: flex;
+    flex-direction: column;
+    width:70% ;
+    background-color: blue;
+}

@@ -1,0 +1,30 @@
+.third_step {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        & label{
+            font-size:20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: brown ;
+        }
+        .ql-container {
+margin-top: 12px;
+            .ql-editor {
+                & p {
+                    text-align: left;
+                }
+                & img{
+                    width: 400px;
+                    height: 400px;
+                }
+
+            }
+        }
+    }
+
+}

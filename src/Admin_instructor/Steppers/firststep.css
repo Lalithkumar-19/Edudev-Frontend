@@ -1,0 +1,49 @@
+.first_step{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .first_step_form{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+
+        .form_item{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            & label{
+                font-size: 18px;
+                color: black;
+                font-weight: 500;
+                margin-bottom: 4px;
+            }
+            & input ,textarea,select{
+                height: 20px;
+                border: none;
+                outline: none;
+                text-indent: 3px;
+            }
+            & textarea{
+                height: 50px;
+                resize: none;
+            }
+            & select{
+            min-width: 100px;
+            text-align: center;
+            }
+            & ul,li{
+                list-style: circle;
+                color: chocolate;
+                text-decoration: none;
+                border-bottom: none;
+            }
+
+        }
+        .form_item_diff{
+            display: flex;
+        }
+
+
+    }
+}

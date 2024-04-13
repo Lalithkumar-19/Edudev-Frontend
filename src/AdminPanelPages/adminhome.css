@@ -1,0 +1,8 @@
+.Adminhome{
+    flex: 4;
+}
+
+.AdminhomeWidgets{
+    display: flex;
+    margin: 20px;
+}

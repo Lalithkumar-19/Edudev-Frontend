@@ -1,0 +1,182 @@
+.cart_page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+    .cart_page_header {
+        display: flex;
+        flex-direction: column;
+        padding: 0 12px;
+
+        .cart_main_title {
+            margin-left: 0px;
+            margin-bottom: 2px;
+        }
+
+        .cart_sub_title {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+
+            .cart_sub_sub_title {
+                color: coral;
+            }
+        }
+    }
+
+    .cart_page_main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 12px;
+
+
+    }
+
+    .cart_page_footer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+
+        .coupon_apply_div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 50%;
+            margin-bottom: 30px;
+            padding: 20px;
+            height: 100px;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            background-color: gainsboro;
+            border-radius: 10px;
+
+            .coupon_input {
+                width: 50%;
+                height: 30px;
+                outline-style: none;
+                border: none;
+                border-radius: 10px;
+
+            }
+
+            .apply_coupon_button {
+                width: 30%;
+                height: 30px;
+
+
+            }
+
+        }
+        .cart_totals{
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            width: 50%;
+            background-color: gainsboro;
+            align-items: flex-start;
+            padding:10px 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            border-radius: 20px;
+            .cart_totals_head_title{
+                margin-left: 0px;
+            }
+            .subtotal,.grandtotal,.shipping{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                border-bottom: 1px solid  gray;
+                padding: 10px;
+                .total_price{
+                    font-size: 17px;
+                    font-weight: 700;
+
+                }
+            }
+            .grandtotal{
+                border-bottom: none;
+            }
+            .proceed_button{
+                width: 100%;
+                margin-top: 6px;
+            }
+
+        }
+    }
+
+
+
+}
+
+
+
+@media(width<=600px){
+    .cart_page{
+        .cart_page_main{
+            width: 96%;
+        }
+        .cart_page_footer{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            .coupon_apply_div{
+                width: 80%;
+                display: flex;
+                padding: 10px;
+                height: 50px;
+                align-items: first baseline ;
+                justify-content: center;
+                
+                .coupon_input{
+                    height: 46px;
+                }
+                .apply_coupon_button{
+                    width: 120px;
+                    padding: 12px;
+
+                }
+
+            }
+            .cart_totals{
+                width: 90%;
+                padding: 20px;
+                margin-left: 0px;
+            }
+        }
+    }
+
+    
+}
+
+@media(601px<=width<=990px){
+.cart_page{
+    .cart_page_footer{
+        .coupon_apply_div{
+            width: 100%;
+            display: flex;
+            padding: 10px;
+            height: 50px;
+            align-items: first baseline ;
+            justify-content: center;
+            margin-left: 5px;
+        }
+        .cart_totals{
+            width: 100%;
+            margin-right: 5px;
+        }
+    }
+}
+
+
+}
+
+@media(width>=990px){
+
+
+}

@@ -1,0 +1,73 @@
+.course_desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .course_Para {
+        text-align: justify;
+        margin-top: 0px;
+        line-height: 24px;
+        word-break: keep-all;
+        padding: 10px;
+        margin-bottom: 0px;
+    }
+
+    .learning_list {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        width: 100%;
+        columns: 2;
+
+        @media(width<=600px) {
+            display: flex;
+            height: fit-content;
+        }
+
+        @media(601px<=width<=992px) {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            height: max-content;
+        }
+
+        .learning_list_item {
+            color: coral;
+            display: flex;
+            flex-direction: row;
+            margin-left: 9px;
+
+            .list_item_name {
+                color: black;
+                opacity: 0.7;
+                margin-left: 8px;
+            }
+        }
+
+
+
+    }
+
+    .requirements {
+        display: flex;
+        flex-direction: column;
+
+        .requirements_heading {
+            margin-left: 10px;
+        }
+
+        & li {
+            margin-bottom: 10px;
+            word-spacing: 4px;
+            opacity: 0.8;
+        }
+
+        & li::selection {
+            color: white;
+            background-color: coral;
+        }
+    }
+
+
+}

@@ -1,0 +1,68 @@
+.second_step{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .second_step_inner{
+        display: flex;
+        flex-direction: column;
+        & label{
+            font-size: 20px;
+            color: blue;
+
+        }
+        & input{
+            margin-top: 5px;
+            width: 100%;
+            height: 30px;
+            text-indent: 5px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+
+
+        }
+        .videos_input_div{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            & input{
+                margin-bottom: 5px;
+                width: 98.6%;
+                height: 70px;
+                background-color: green;
+                color:black;
+            }
+            .save_button{
+                text-align: center;
+                margin-top: 9px;
+            }
+        }
+    }
+    .course_preview{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        .title{
+            text-align: center;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: green;
+        }
+        & p{
+            font-size: 20px;
+            width: 100%;
+            text-align: start;
+            background-color: white;
+            text-indent: 5px;
+            color: coral;
+            padding: 5px 0px;
+        }
+
+    }
+
+}
+
+#input-file-videos{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,16 @@
+.courses_by_ins{
+    display: flex;
+    flex-direction: column;
+    .courses_by_ins_title{
+        font-size: 20px;
+        color:chocolate;
+    }
+    .course-card{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px;
+        
+    }
+}

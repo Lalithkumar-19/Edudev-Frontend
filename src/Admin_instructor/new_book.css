@@ -1,0 +1,57 @@
+.new_book {
+    & h2 {
+        color: coral;
+        margin-left: 5px;
+    }
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0px 10px;
+
+        & label {
+            font-size: 18px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        & input,
+        textarea {
+            border: none;
+            outline: none;
+            text-indent: 4px;
+            width: 98%;
+            height: 30px;
+
+        }
+
+
+        & :is(input[type='text'], input[type="number"], textarea):focus {
+            border: 1px solid coral;
+        }
+
+        .react-tagsinput  {
+            & input:focus {
+                border: none;
+            }
+        }
+
+        & textarea {
+            resize: none;
+            width: 98%;
+            text-indent: 4px;
+            height: auto;
+        }
+
+        .selected_img_preview {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 13px;
+
+        }
+
+    }
+}

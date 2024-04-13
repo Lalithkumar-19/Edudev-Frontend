@@ -1,0 +1,192 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    margin: 0px;
+}
+
+.navbar h2 {
+    font-size: 20px;
+    color: coral;
+    margin-left: 40px;
+}
+
+.navbar .navbar_menu {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    list-style: none;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.navbar .navbar_menu .main {
+    margin-left: 8px;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    height: 100%;
+    border: none;
+    padding: 0px;
+    width: auto;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar .navbar_menu .main::after {
+    content:"";
+    display: block;
+    width: 100%;
+    background-color: coral;
+    position: absolute;
+    height: 2px;
+    bottom: 0px;
+    left: -2px;
+    margin-top: 0px;
+    transform: scaleX(0%);
+    transition: transform 0.1s ease-in 0.1s;
+    transform-origin: center;
+
+}
+
+.navbar .navbar_menu .main:hover::after {
+    transform: scaleX(100%);
+
+}
+
+.navbar button:nth-of-type(1) {
+    background-color: white;
+    text-align: center;
+    width: 90px;
+    color: blue;
+    height: 35px;
+    margin: 5px;
+    border-radius: 9px;
+    cursor: pointer;
+    &:hover{
+        background-color: coral;
+        color: white;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+
+}
+
+.navbar .Activity_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    width: max-content;
+
+    .bucket_icon {
+        margin-right: 10px;
+    }
+}
+
+#my_self{
+    & button:hover{
+        background-color: white;
+        color: blue;
+    }
+}
+
+
+@media(width<=600px) {
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        & h2 {
+            margin-left: 0px;
+        }
+
+        .navbar_menu {
+            display: none;
+
+            .main {
+                display: none;
+            }
+
+            .main:nth-last-child(even) {
+                display: flex;
+            }
+        }
+
+        .Activity_buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+
+            .bucket_icon {
+                display: none;
+            }
+            .my_learnings{
+                font-size: 15px;
+                font-weight: 700;
+
+            }
+            .signup_button{
+                display: none;
+            }
+           
+        }
+    }
+
+}
+
+
+
+@media (601px<=width<=990px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 0px;
+
+        .navbar_menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            min-width: 300px;
+            max-width: 600px;
+            align-items: center;
+
+            .main {
+                display: flex;
+            }
+
+            .main:nth-last-of-type(1) {
+                display: none;
+            }
+
+        }
+
+        .Activity_buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            width: max-content;
+            .bucket_icon {
+                margin-right: 10px;
+            }
+        }
+    }
+
+}
+
