@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../Admin_instructor/Profile.css";
+// import "../Admin_instructor/Profile.css";
 import { Toaster, toast } from "react-hot-toast";
 import { Publish } from "@mui/icons-material";
 import Navbar from "../Pages/Navbar";
