@@ -1,6 +1,6 @@
 import React from 'react'
 import FeaturedInfo from '../AdminpanelComponents/FeaturedInfo'
-import "../AdminPanelPages/adminHome.css"
+import "../AdminPanelPages/adminhome.css"
 import WidgetLg from '../AdminpanelComponents/WidgetLg';
 
 function Ins_home() {
