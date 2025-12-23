@@ -2,161 +2,168 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding-bottom: 4rem;
+    background: var(--bg-body);
 }
 
+/* Guarantees Section */
 .explore .mini_gurantees {
-    margin-top: 50px;
+    margin: 3rem 0;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 2rem;
     width: 100%;
     justify-content: center;
-    align-items: center;
-
+    padding: 2rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
 }
 
 .explore .mini_gurantees .mini_item {
     display: flex;
-    flex-direction: row;
-    min-width: 200px;
-    max-width: 250px;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-body);
+    transition: transform 0.2s;
 }
 
+.explore .mini_gurantees .mini_item:hover {
+    transform: translateY(-3px);
+}
+
+.explore .mini_gurantees .mini_item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Specific item colors (Optional, could use utility classes but keeping CSS) */
 .explore .mini_gurantees .mini_item:nth-child(1) {
-    color: blue;
+    color: #2563eb;
 }
 
+/* Blue */
 .explore .mini_gurantees .mini_item:nth-child(2) {
-    color: red;
+    color: #dc2626;
 }
 
+/* Red */
 .explore .mini_gurantees .mini_item:nth-child(3) {
-    color: #fdbb2d;
+    color: #d97706;
 }
 
+/* Amber */
 .explore .mini_gurantees .mini_item:nth-child(4) {
-    color: #12c2e9;
+    color: #0891b2;
 }
 
+/* Cyan */
 .explore .mini_gurantees .mini_item:nth-child(5) {
-    color: blue;
+    color: #4f46e5;
 }
 
+/* Indigo */
 
-
-/* explore category page css styles */
+/* Categories Section */
 .categories_explore {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    padding: 2rem 1rem;
 }
 
-.categories_explore .category_heading::after {
-    content: "";
-    display: block;
-    width: 100%;
-    background-color: tomato;
-    height: 2px;
-    bottom: 0px;
-    left: 0px;
-    margin-top: 2px;
-
+.categories_explore .category_heading {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
 }
 
 .categories_explore .category_title_box {
-
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 3rem;
     display: flex;
     flex-direction: column;
-    width: 500px;
     align-items: center;
+}
+
+.categories_explore .categoty_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.categories_explore .category_sub_quote {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 80%;
+}
+
+/* Category Grid */
+.categories_explore .categotyitem_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
     justify-content: center;
 }
 
-.categories_explore .category_title_box .category_sub_quote {
-    width: 100%;
-    text-align: center;
-    opacity: 0.8;
-    line-height: 20px;
-    word-spacing: 1px;
-}
-
-
-
-.categories_explore .categotyitem_box {
-display: flex;
-flex-direction: row;
-width: 100%;
-flex-wrap: wrap;
-align-items: center;
-
-}
 .categories_explore .categotyitem_box .categoty_item {
     display: flex;
-    flex-direction: row;
-    width: 200px;
     align-items: center;
-    justify-content: center;
-    height: 100px;
-    border: 1px solid #fdbb2d;
-    margin: 20px;
+    gap: 1rem;
+    width: 260px;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
     cursor: pointer;
-
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .categories_explore .categotyitem_box .categoty_item:hover {
-    background-color: tomato;
-    color: white;
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
-.categories_explore.categotyitem_box .categoty_item img {
-    width: 30px;
-    height: 30px;
-    background-color: pink;
-    border-radius: 5px;
-    border: 2px solid pink;
-    margin-right: 10px;
+.categories_explore .categotyitem_box .categoty_item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    padding: 4px;
+    background: var(--bg-body);
+    border-radius: 8px;
 }
 
-.categories_explore .categotyitem_box .categoty_item .categoryitem_course_details {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1px;
+.categories_explore .categotyitem_box .categoty_item .categoryitem_course_details span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-main);
 }
 
-.categories_explore .categotyitem_box .categoty_item {
-    width: 230px;
-    margin: 0 auto;
-}
-
-.categories_explore .category_title_box .category_sub_quote {
-    width: 70%;
-}
-
-
-
-/* for mobs
-@media(width<=600px){
-
-
-}
-/* for small screens */
-@media(min-width:600px){
-/* no need to write css for tabs also ,it is fitted perfectly */
-
-} 
-/* medium devices */
-@media(width>=1200px){
-    .explore .categories_explore .categotyitem_box{
-        width: 60%;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
+/* Responsive */
+@media (max-width: 600px) {
+    .explore .mini_gurantees {
+        flex-direction: column;
+        align-items: stretch;
     }
 
+    .categories_explore .categoty_title {
+        font-size: 1.8rem;
+    }
 
+    .categories_explore .categotyitem_box .categoty_item {
+        width: 100%;
+    }
 }

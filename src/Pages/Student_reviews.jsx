@@ -9,8 +9,8 @@ function Student_reviews() {
                 <h3 className='category_heading'>#Review</h3>
                 <div className='category_title_box'>
                     <h1 className='categoty_title'>Our Student <span style={{ color: "tomato" }}>Review </span></h1>
-                    <span className='category_sub_quote' style={{ width: "370px" }}>
-                        Discover why students love learning with us! Read firsthand experiences from our diverse community of learners about their educational journey at [Educational Institution]. From engaging courses to supportive instructors, find out what makes studying here a truly transformative experience.
+                    <span className='category_sub_quote' style={{ width: "500px", textAlign: "center", lineHeight: "27px" }}>
+                        Discover why students love learning with us! Read firsthand experiences from our diverse community of learners about their educational journey at Educational Institution. From engaging courses to supportive instructors, find out what makes studying here a truly transformative experience.
                     </span>
                 </div>
             </div>

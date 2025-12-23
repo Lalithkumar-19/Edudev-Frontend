@@ -1,87 +1,133 @@
+/* Banner / Hero Overlay */
 .banner_div {
     position: absolute;
-    top: 160px;
-    left: 100px;
+    top: 50%;
+    /* Vertical center */
+    left: 10%;
+    transform: translateY(-50%);
     z-index: 300;
-    width: 500px;
-    @media(width>700px){
-        top: 90px;
-        left: 30px;
-    }
+    width: 600px;
+    max-width: 90%;
+
+    /* Glassmorphism backing for readability */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+/* Header Text */
 .banner_div .first_box_header_lines {
-    position: relative;
-    font-size: 30px;
-    width: 100%;
-    text-align: start;
-    font-weight: 600;
-    word-spacing: 6px;
-    line-height: 40px;
-
-
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
+/* Subtitle / Quote */
 .banner_div .banner_text_quote {
-    width: 80%;
-    line-height: 20px;
-    font-size: 13px;
-    margin-top: 10px;
-    font-weight: 500;
-    color: black;
-    opacity: 0.7;
-
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    width: 100%;
 }
 
+/* Search Input Container */
 .banner_div .banner_search_input {
     display: flex;
+    gap: 0.75rem;
+    height: 54px;
     width: 100%;
-    height: 40px;
-    margin-top: 30px;
-    gap: 5px;
-    height: 50px;
 }
 
 .banner_div .banner_search_input input {
-    cursor: text;
-    border-radius: 11px;
-    border: 1px solid coral ;
-    text-align: start;
-    width: 260px;
-    height: 100%;
-    outline-style: none;
-    color: black;
+    flex: 1;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+    background: white;
 }
 
+.banner_div .banner_search_input input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.1);
+}
 
-
+/* Search Button */
 .banner_div .banner_search_input button {
-    width: 150px;
-    outline-style: none;
-    background-color: coral;
-    border-radius: 10px;
-    border-style: none;
-    height: 100%;
+    padding: 0 2rem;
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: var(--radius-md);
     color: white;
+    font-weight: 600;
+    font-size: 1rem;
     cursor: pointer;
-}
-.banner_div .banner_bottom{
-    margin-top: 20px;
-    width: 200px;
-    height: 40px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-@media(360px<=width<=720px){
-.banner_div{
-    width: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 70px;
-    left: 7px;
-    z-index: 300;
-    width: 300px;
+.banner_div .banner_search_input button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 75, 31, 0.3);
 }
 
+/* Rating / Bottom Text */
+.banner_div .banner_bottom {
+    margin-top: 1.5rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+}
 
+/* Responsive */
+@media (max-width: 900px) {
+    .banner_div {
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+        padding: 2rem;
+    }
 
+    .banner_div .first_box_header_lines {
+        font-size: 1.75rem;
+    }
+
+    .banner_div .banner_search_input {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner_div {
+        top: 10%;
+        padding: 1.5rem;
+    }
+
+    .banner_div .first_box_header_lines {
+        font-size: 1.5rem;
+    }
+
+    .banner_div .banner_search_input {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .banner_div .banner_search_input input,
+    .banner_div .banner_search_input button {
+        width: 100%;
+        height: 48px;
+    }
 }

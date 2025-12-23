@@ -1,112 +1,172 @@
+/* Course Card Line Align (Horizontal) */
 .course_card_align_two {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
-    gap: 15px;
-    background-color: gainsboro;
-    border-radius: 10px;
-    justify-content: center;
-    margin-top: 30px;
+    margin-top: 1rem;
+    background-color: var(--bg-card, white);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid transparent;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border-color: #e2e8f0;
+    }
+
+    @media(max-width: 600px) {
+        flex-direction: column;
+    }
 
     .course_backdrop {
-        width: 30%;
+        width: 35%;
+        min-width: 250px;
         height: 200px;
+        /* Fixed height for consistency */
         position: relative;
+        overflow: hidden;
 
-        @media(width<=600px) {
-            height: 230px;
+        @media(max-width: 600px) {
+            width: 100%;
+            height: 180px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
         .level_of_learning {
-            background-color: coral;
-            padding: 8px;
-            border-radius: 10px;
-            width: 60px;
+            background-color: rgba(255, 127, 80, 0.95);
+            padding: 4px 10px;
+            border-radius: 20px;
             position: absolute;
-            top: 5px;
-            left: 5px;
+            top: 10px;
+            left: 10px;
             color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+    }
+
+    /* Hover Effect for Image */
+    &:hover .course_backdrop img {
+        transform: scale(1.05);
     }
 
     .course_card_align_two_details {
         display: flex;
         flex-direction: column;
-        width: 70%;
-        gap: 6px;
-        padding: 6px 12px;
+        flex: 1;
+        /* Take remaining width */
+        padding: 1.5rem;
+        gap: 0.8rem;
 
         .course_creator_main_details {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
 
             .course_creator_pic_div {
-                width: 40px;
-                height: 40px;
-                border-radius: 100%;
-                margin-right: 10px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 2px solid white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
-
+            .creator_name {
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: #718096;
+            }
         }
 
         .course_name {
-            margin-left: 0px;
-            margin-bottom: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #2d3748;
+            margin: 0;
+            line-height: 1.3;
         }
 
         .course_meta_details {
             display: flex;
             flex-direction: row;
-            width: 100%;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 5px;
+            color: #718096;
+            font-size: 0.9rem;
+            font-weight: 500;
 
             .item {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                justify-content: center;
-
-                .item_name {
-                    @media (width<=600px) {
-                        font-size: 10px;
-                    }
-                }
+                gap: 6px;
             }
-            .item3 {
-                .item_name {
-                    @media(width<=600px) {
-                        font-size: 13px;
-    
-                    }
-                }
+
+            .item3 .item_name {
+                color: #f59e0b;
+                /* Amber */
+                font-weight: 700;
             }
         }
 
         .course_price_and_buy_button_div {
             display: flex;
             flex-direction: row;
-            width: 100%;
             justify-content: space-between;
             align-items: center;
-            margin-top: 16px;
+            margin-top: auto;
+            /* Push to bottom */
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
 
             .course_price {
-                font-size: 18px;
-                color: coral;
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: var(--primary, #fe7f50);
             }
 
             .buy_now {
-                width: 100px;
+                padding: 10px 24px;
+                background: linear-gradient(135deg, var(--primary, #fe7f50), #ff6b3d);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: transform 0.2s, box-shadow 0.2s;
+                box-shadow: 0 4px 6px rgba(254, 127, 80, 0.25);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 7px 14px rgba(254, 127, 80, 0.3);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
             }
-
         }
-
-
-
     }
-
 }

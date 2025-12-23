@@ -62,14 +62,14 @@ export default function EditBook_modal({ id, }) {
     }, [])
 
 
-    const handle_Delete_book=async ()=>{
+    const handle_Delete_book = async () => {
         try {
-            const res=await axios.put(`https://edudev-server-1.onrender.com/delete_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
-            if(res.status===200){
+            const res = await axios.put(`https://edudev-server-1.onrender.com/delete_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
+            if (res.status === 200) {
                 toast.success("deleted successfully");
                 window.location.reload();
             }
-            else{
+            else {
                 toast.error("internal server error occured")
             }
         } catch (error) {
@@ -89,57 +89,70 @@ export default function EditBook_modal({ id, }) {
                 id='modal_main_div'
             >
                 <div id='modal_inner_main' >
-                    <h2>Update Book Data</h2>
-                    <div id="modal-modal-description" sx={{ mt: 2 }}>
+                    <h2 style={{ padding: '20px 20px 0', margin: 0, color: '#2d3748' }}>Update Book Data</h2>
+                    <div id="modal-modal-description">
                         <TextField
                             name="title"
                             label="Book Name"
                             value={updatedBookData.title}
                             onChange={handleChange}
+                            fullWidth
                         />
                         <TextField
                             name="Author"
                             label="Book Author"
                             value={updatedBookData.Author}
                             onChange={handleChange}
+                            fullWidth
                         />
                         <TextField
                             name="description"
                             label="Book Description"
                             value={updatedBookData.description}
                             onChange={handleChange}
+                            fullWidth
+                            multiline
+                            rows={3}
                         />
                         <TextField
                             name="Additional_info"
                             label="Additional Information"
                             value={updatedBookData.Additional_info}
                             onChange={handleChange}
+                            fullWidth
                         />
-                        <TextField
-                            name="book_price"
-                            label="Actual Price"
-                            value={updatedBookData.book_price}
-                            onChange={handleChange}
-                        />
-                        <TextField
-                            name="book_actual_price"
-                            label="Final Price"
-                            value={updatedBookData.book_actual_price}
-                            onChange={handleChange}
-                        />
-                        <TextField
-                            name="In_stock"
-                            label="Number of Items in Stock"
-                            value={updatedBookData.In_stock}
-                            onChange={handleChange}
-                        />
-                        {/* Add fields for tags and images as needed */}
-                        <Button onClick={handleUpdate} variant="contained" color="primary" sx={{ marginBottom: "20px" }}>
-                            Update
-                        </Button>
-                        <Button onClick={handle_Delete_book} variant="contained" color="primary" sx={{ marginBottom: "20px" }}>
-                            Delete
-                        </Button>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '15px' }}>
+                            <TextField
+                                name="book_price"
+                                label="Actual Price"
+                                value={updatedBookData.book_price}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                            <TextField
+                                name="book_actual_price"
+                                label="Final Price"
+                                value={updatedBookData.book_actual_price}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                            <TextField
+                                name="In_stock"
+                                label="In Stock"
+                                value={updatedBookData.In_stock}
+                                onChange={handleChange}
+                                fullWidth
+                            />
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+                            <Button onClick={handleUpdate} variant="contained" sx={{ backgroundColor: '#fe7f50', '&:hover': { backgroundColor: '#ff6b3d' }, flex: 1 }}>
+                                Update
+                            </Button>
+                            <Button onClick={handle_Delete_book} variant="outlined" color="error" sx={{ flex: 1 }}>
+                                Delete
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </Modal>

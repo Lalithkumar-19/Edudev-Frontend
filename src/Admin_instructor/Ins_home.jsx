@@ -5,7 +5,7 @@ import WidgetLg from '../AdminpanelComponents/WidgetLg';
 
 function Ins_home() {
     return (
-        <div>
+        <div className="home_dashboard" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <FeaturedInfo />
             <WidgetLg />
         </div>

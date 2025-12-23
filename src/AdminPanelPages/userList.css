@@ -1,31 +1,148 @@
+/* Premium User List CSS */
 .userList {
-    flex: 4;
+  flex: 4;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.userListHeader {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.userListTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--secondary, #2d3748);
+  margin: 0;
+}
+
+.userListContainer {
+  flex: 1;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  /* Ensure rounded corners clip content */
+  display: flex;
+  flex-direction: column;
+}
+
+/* User Column Customization */
+.userListUser {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.userListImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Action Buttons */
+.userListEdit {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background-color: #3bb077;
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #2e8b5d;
   }
-  
-  .userListUser {
-    display: flex;
-    align-items: center;
+}
+
+.userListDelete {
+  color: #e53e3e;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #c53030;
   }
-  
-  .userListImg {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
+}
+
+/* MUI DataGrid Overrides for Premium Look */
+.userListDataGrid {
+  border: none !important;
+  font-family: 'Inter', sans-serif !important;
+
+  .MuiDataGrid-columnHeaders {
+    background-color: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
+    color: #718096;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
   }
-  
-  .userListEdit{
-      border: none;
-      border-radius: 10px;
-      padding: 5px 10px;
-      background-color: #3bb077;
-      color: white;
-      cursor: pointer;
-      margin-right: 20px;
+
+  .MuiDataGrid-columnHeaderTitle {
+    font-weight: 700 !important;
   }
-  
-  .userListDelete{
-      color: red;
-      cursor: pointer;
+
+  .MuiDataGrid-cell {
+    border-bottom: 1px solid #edf2f7 !important;
+    color: #4a5568;
+    font-size: 0.95rem;
+
+    &:focus,
+    &:focus-within {
+      outline: none !important;
+    }
   }
+
+  .MuiDataGrid-row {
+    &:hover {
+      background-color: #f7fafc !important;
+    }
+
+    &.Mui-selected {
+      background-color: rgba(254, 127, 80, 0.08) !important;
+
+      &:hover {
+        background-color: rgba(254, 127, 80, 0.12) !important;
+      }
+    }
+  }
+
+  /* Checkbox Color */
+  .MuiCheckbox-root {
+    color: #cbd5e1 !important;
+
+    &.Mui-checked {
+      color: var(--primary, #fe7f50) !important;
+    }
+  }
+
+  /* Pagination Footer */
+  .MuiDataGrid-footerContainer {
+    border-top: 1px solid #e2e8f0;
+    background-color: #fff;
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loadingSpinner {
+  color: var(--primary, #fe7f50) !important;
+}

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./userList.css";
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@mui/icons-material';
 import axios from 'axios';
@@ -106,17 +107,27 @@ export default function Instructors_manage() {
   return (
     <div className="userList">
       <Toaster gutter={3} />
+      <div className="userListHeader">
+        <h2 className="userListTitle">Instructors Management</h2>
+      </div>
 
-      {
-        data.length > 0 ? (<>
+      <div className="userListContainer">
+        {data.length > 0 ? (
           <DataGrid
             rows={data}
             disableSelectionOnClick
             columns={columns}
-            pageSize={8}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
+            checkboxSelection
+            className="userListDataGrid"
           />
-        </>) : (<div style={{ textAlign: "center" }}><CircularProgress color="primary" content="Fetching data" /></div>)
-      }
+        ) : (
+          <div className="loadingContainer">
+            <CircularProgress size={40} className="loadingSpinner" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -29,7 +29,7 @@ function Cart_Page_item({ id, item_pic, item_name, item_owner, item_price }) {
 
             <div className='item_price'>
                 <span className='price'>
-                    ${item_price}
+                    ₹{item_price}
                 </span>
             </div>
             <div className='item_quantity'>
@@ -52,7 +52,7 @@ function Cart_Page_item({ id, item_pic, item_name, item_owner, item_price }) {
             </div>
             <div className='total_amount'>
                 <span style={{ color: "coral" }} className='total_quantity_amount'>
-                    $ {quantValue * item_price}
+                    ₹ {quantValue * item_price}
                 </span>
             </div>
             <span onClick={Remove_from_cart}>

@@ -8,7 +8,7 @@ function Contactpage() {
         <div className='Contactpage' id="Contact_page">
             <div className='contactpage_main'>
                 <section className='company_logo'>
-                    <h2 style={{ color: "blue", fontFamily: "monospace", fontWeight: "700" }}>EduDev</h2>
+                    <h2 style={{ color: "coral", fontFamily: "monospace", fontWeight: "700" }}>EduDev</h2>
                 </section>
                 <section className='company_links'>
                     <h1 className='links_title'> Links</h1>
@@ -47,24 +47,24 @@ function Contactpage() {
             </div>
             <footer className='contact_footer'>
                 <div className='main_policy'>
-                    <span className='privacy'>
+                    <span className='privacy' style={{ marginRight: "10px" }}>
                         Privacy & Terms
                     </span>
-                    <span className='contact_us'>
+                    <span className='contact_us' style={{ marginRight: "10px" }} >
                         Contact us
                     </span>
                 </div>
-                <div className='rights_reserved'>
-                    © Copyrights 2021. All Rights Reserved by Lalith Kumar
+                <div className='rights_reserved' style={{ marginRight: "10px" }}>
+                    © Copyrights 2021. All Rights Reserved by Edudev
                 </div>
-                <div className='soial_media_links'>
-                    <span className='fb_link'>
+                <div className='social_media_links' style={{ marginRight: "10px" }}>
+                    <span className='fb_link' style={{ marginRight: "10px" }}>
                         <FacebookOutlined />
                     </span>
-                    <span className='twitter_link'>
+                    <span className='twitter_link' style={{ marginRight: "10px" }}>
                         <Twitter />
                     </span>
-                    <span className='linkedin_link'>
+                    <span className='linkedin_link' style={{ marginRight: "10px" }}>
                         <LinkedIn />
                     </span>
                 </div>

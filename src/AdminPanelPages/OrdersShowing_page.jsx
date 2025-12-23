@@ -48,59 +48,68 @@ function OrdersShowing_page() {
                 <h2 className='header_top'>Orders <span style={{ color: "coral" }}>Page</span></h2>
             </header>{
                 Orders.length !== 0 &&
-
                 <div className='all_orders'>
-
-                    <table style={{ overflow: "scroll" }} >
-                        <tr>
-                            <th>Product</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Payment</th>
-                            <th>Address</th>
-                            <th>Delivered?</th>
-                            <th>Phone Number</th>
-
-                        </tr>
-                        {
-                            Orders && Orders.map((item) => {
-                                return (
-                                    <>
-                                        <tr key={item._id}>
-                                            <td>{Array.isArray(item.products) && item.products.map((it) => {
-                                                return it.name + " ,";
-                                            })}</td>
-                                            <td>{item.subtotal}</td>
-                                            <td style={{ color: "red", fontSize: "18px" }}>{item.delivery_status} </td>
-                                            <td>{item.payment_status}</td>
-                                            <td>{item.shipping.address.city},{item.shipping.address.line1}</td>
-                                            <td><select onChange={(ev) => {
-                                                Change_delivery_status(item._id, ev.target.value);
-                                            }}>
-                                                <option value={item.delivery_status}>{item.delivery_status}</option>
-                                                {status_options.map((val, i) => {
-                                                    if (val !== item.delivery_status) {
-                                                        return <option key={i} value={val}>{val}</option>
-                                                    }
-                                                })}
-
+                    <div className="table_responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Payment</th>
+                                    <th>Address</th>
+                                    <th>Delivered?</th>
+                                    <th>Phone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Orders.map((item) => (
+                                    <tr key={item._id}>
+                                        <td>
+                                            <div className="product_names">
+                                                {Array.isArray(item.products) && item.products.map((it, idx) => (
+                                                    <span key={idx}>{it.name}{idx < item.products.length - 1 ? ", " : ""}</span>
+                                                ))}
+                                            </div>
+                                        </td>
+                                        <td className="amount_cell">₹{item.subtotal}</td>
+                                        <td>
+                                            <span className={`status_badge ${item.delivery_status.toLowerCase().replace(/\s/g, '_')}`}>
+                                                {item.delivery_status}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span className={`payment_badge ${item.payment_status.toLowerCase()}`}>
+                                                {item.payment_status}
+                                            </span>
+                                        </td>
+                                        <td className="address_cell">
+                                            {item.shipping.address.city}, {item.shipping.address.line1}
+                                        </td>
+                                        <td>
+                                            <select
+                                                className="status_select"
+                                                value={item.delivery_status}
+                                                onChange={(ev) => Change_delivery_status(item._id, ev.target.value)}
+                                            >
+                                                {status_options.map((val, i) => (
+                                                    <option key={i} value={val}>{val}</option>
+                                                ))}
                                             </select>
-                                            </td>
-                                            <td>{item.shipping.phone}</td>
-
-
-                                        </tr>
-                                    </>
-                                )
-                            })
-                        }
-                    </table>
+                                        </td>
+                                        <td>{item.shipping.phone}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             }
             {Orders.length === 0 && (
-                <>
-                    <h1>No orders there</h1>
-                </>
+                <div className="no_orders_state">
+                    <h3>No orders found</h3>
+                    <p>New orders will appear here once customers make a purchase.</p>
+                </div>
             )}
 
 

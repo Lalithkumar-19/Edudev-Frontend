@@ -86,7 +86,7 @@ const Profilepage = () => {
     return (
         <div className="user_profile">
             <Toaster />
-            <Navbar/>
+            <Navbar />
             <h2>User Profile</h2>
             <div className="user_details">
                 {user ? (
@@ -99,7 +99,7 @@ const Profilepage = () => {
                                     <label htmlFor="file">
                                         <Publish className="userUpdateIcon" />
                                     </label>
-                                    <input type="file" id="file" accept="image/*"  name="dp" style={{ display: "none" }}  onChange={(e) => { setDp(e.target.files[0]) }}/>
+                                    <input type="file" id="file" accept="image/*" name="dp" style={{ display: "none" }} onChange={(e) => { setDp(e.target.files[0]) }} />
                                 </>
                                 // <input type="file" accept="image/*" name="dp" style={{ marginBottom: "6px", background: " white", border: "none" }} onChange={(e) => { setDp(e.target.files[0]) }}
                             ) : ""

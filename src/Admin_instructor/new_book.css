@@ -1,57 +1,170 @@
+/* New Book Page CSS */
 .new_book {
-    & h2 {
-        color: coral;
-        margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--secondary, #2d3748);
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
     }
 
-    & form {
+    form {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
         width: 100%;
-        padding: 0px 10px;
+        max-width: 1000px;
+        /* Consistent with other forms */
+        background: white;
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin: 0 auto;
 
-        & label {
-            font-size: 18px;
-            margin-bottom: 5px;
-            margin-top: 5px;
+        label {
+            font-size: 0.95rem;
+            color: #4a5568;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: block;
         }
 
-        & input,
-        textarea {
-            border: none;
+        /* Consistent Input & Textarea */
+        input[type='text'],
+        input[type="number"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            font-size: 1rem;
+            font-family: inherit;
             outline: none;
-            text-indent: 4px;
-            width: 98%;
-            height: 30px;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
 
-        }
+            &:focus {
+                border-color: var(--primary, #fe7f50);
+                box-shadow: 0 0 0 3px rgba(254, 127, 80, 0.1);
+                background-color: white;
+            }
 
-
-        & :is(input[type='text'], input[type="number"], textarea):focus {
-            border: 1px solid coral;
-        }
-
-        .react-tagsinput  {
-            & input:focus {
-                border: none;
+            &::placeholder {
+                color: #a0aec0;
             }
         }
 
-        & textarea {
-            resize: none;
-            width: 98%;
-            text-indent: 4px;
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        /* React Tags Input Override */
+        .react-tagsinput {
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 8px !important;
+            background-color: #f8fafc !important;
+            padding: 5px !important;
+            min-height: 48px;
+            font-family: inherit;
+
+            &--focused {
+                border-color: var(--primary, #fe7f50) !important;
+                background-color: white !important;
+            }
+        }
+
+        .react-tagsinput-tag {
+            background-color: #fff5f5 !important;
+            border: 1px solid #fed7d7 !important;
+            color: #c53030 !important;
+            border-radius: 6px !important;
+            padding: 4px 10px !important;
+            font-weight: 500;
+        }
+
+        .react-tagsinput-input {
+            margin-bottom: 0 !important;
+            font-family: inherit !important;
+            color: #2d3748;
+        }
+
+        /* File Input Area */
+        input[type='file'] {
+            padding: 15px;
+            background-color: white;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
             height: auto;
+
+            &:hover {
+                border-color: #a0aec0;
+            }
         }
 
         .selected_img_preview {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 13px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
 
+            img {
+                width: 100%;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border: 2px solid white;
+            }
         }
 
+        /* Submit Button */
+        .create-a-book {
+            align-self: flex-end;
+            margin-top: 1rem;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary, #fe7f50), #ff6b3d);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(254, 127, 80, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 7px 14px rgba(254, 127, 80, 0.3);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+
+            &:disabled {
+                background: #cbd5e1;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+            }
+        }
     }
 }

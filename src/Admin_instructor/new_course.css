@@ -1,8 +1,29 @@
-.new_course{
-    padding: 20px;
-    .new_course_title{
-        color:red;
+/* New Course Page CSS */
+.new_course {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+
+    .new_course_title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--secondary, #2d3748);
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Container for the Stepper */
+    section {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
     }
 }
-
-

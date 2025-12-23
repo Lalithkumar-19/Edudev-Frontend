@@ -1,88 +1,124 @@
+/* Faqpage Styles */
 .faqpage {
+    min-height: 100vh;
+    background: var(--bg-body);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section (Consistent with other pages) */
+.faqpage_header {
+    background: white;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+}
+
+.faqpage_header_title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+}
+
+.faqpage_header_sub_title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.faqpage_header_sub_sub_title {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Search Bar Wrapper */
+.faq_search_bar_container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.faq_search_input {
+    width: 100%;
+    height: 50px;
+    padding: 0 1.5rem;
+    padding-right: 3rem;
+    border-radius: 50px;
+    border: 2px solid var(--border-color);
+    background: white;
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq_search_input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px rgba(255, 127, 80, 0.15);
+    outline: none;
+}
+
+.faq_search_icon {
+    position: absolute;
+    right: 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+
+/* Main Content */
+.faqpage_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+    background: transparent;
+}
+
+.faqpage_main_title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.faqpage_main_sub_title {
+    max-width: 700px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+.faqpage_main_contents {
     display: flex;
     flex-direction: column;
     width: 100%;
-
-    .faqpage_header {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 15px;
-        margin-bottom: 30px;
-        @media(width<=600px){
-            padding: 0 4px;
-        }
-
-        .faqpage_header_title {
-            margin-left: 0px;
-            margin-bottom: 5px;
-            @media(width<=600px){
-               margin-bottom: 0px;;
-            }
-        }
-
-        .faqpage_header_sub_title {
-            .faqpage_header_sub_sub_title {
-                color: coral;
-            }
-        }
-    }
-
-    .faqpage_main{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        background-color: white;
-        justify-content: center;
-        margin-bottom: 30px;
-        .faqpage_main_title{
-            margin-left: 0px;
-            margin-bottom: 4px;
-        }
-        .faqpage_main_sub_title{
-            display: flex;
-        }
-    }
-
-
-
-
-
-    .faqpage_main_contents {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin-bottom: 30px;
-        background-color: white;
-        padding: 10px 2px;
-        @media(width<=600px){
-            flex-direction: column;
-            margin-bottom: 0px;
-        }
-
-        .faqpage_main_contents_left {
-            width: 50%;
-            padding: 0px 20px;
-            @media(width<=600px){
-                width: 100%;
-                padding: 0px ;
-            }
-
-        }
-
-        .faqpage_main_contents_right {
-            width: 50%;
-            padding: 0px 20px;
-            @media(width<=600px){
-                width: 100%;
-                padding: 0px ;
-            }
-        }
-    }
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 0 1rem;
+    gap: 1rem;
+    background: transparent;
 }
 
-#accordion{
-    margin-bottom: 10px;
-    background-color:gainsboro;
-    color:black;
+
+/* No Results */
+.no_results {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
 }

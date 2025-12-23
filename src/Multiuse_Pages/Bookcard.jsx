@@ -19,41 +19,44 @@ function Bookcard({ id, backdrop, name, acualcost, discountcost, aboutbook, admi
     }
 
     return (
-        <div className='bookcard' >
+        <div className='bookcard'>
             <Toaster
                 position="bottom-right"
                 reverseOrder={true}
             />
             <section className='bookcard_top'>
-                <img src={backdrop} width={"100%"} className='book_pic' height={"100%"} style={{ borderRadius: "13px" }} alt='book_pic' />
+                <div className='book_pic_container'>
+                    <img src={backdrop} className='book_pic' alt='book_pic' />
+                </div>
                 <span className='book_offer'>
-                    20% off
+                    20% OFF
                 </span>
             </section>
             <section className='book_details'>
-                <p className='book_name' style={{ cursor: "pointer" }} onClick={() => navigate("/bookshopping/selected_book/" + id)}>{name}</p>
-                <p className='about_book'>{aboutbook}</p>
-                <div className='book_cost'>
-                    <span className='full_cost'> ₹ {acualcost}</span>
-                    <span className='actual_cost'> ₹ {discountcost}</span>
+                <div className='book_info_group'>
+                    <h3 className='book_name' onClick={() => navigate("/bookshopping/selected_book/" + id)}>{name}</h3>
+                    <p className='about_book'>{aboutbook}</p>
                 </div>
-                {
-                    !admin ? (
-                        <>
-                            <div className='book_buttons'>
-                                <button className='add_to_card' onClick={()=>{addtocart()}} >Add to Card</button>
-                                <span className='review_stars'>
-                                    ⭐ ⭐ ⭐ ⭐ ⭐
-                                </span>
+
+                <div className='book_footer'>
+                    <div className='book_cost'>
+                        <span className='actual_cost'>₹{discountcost}</span>
+                        <span className='full_cost'>₹{acualcost}</span>
+                    </div>
+
+                    {
+                        !admin ? (
+                            <div className='book_actions'>
+                                <button className='add_to_cart_btn' onClick={() => { addtocart() }} >Add to Cart</button>
                             </div>
-
-                        </>
-                    ) : <EditBook_modal id={id} />
-                }
-
-
+                        ) : (
+                            <div className='admin_actions'>
+                                <EditBook_modal id={id} />
+                            </div>
+                        )
+                    }
+                </div>
             </section>
-
         </div>
     )
 }

@@ -22,7 +22,7 @@ function Course_list() {
     const [alignline, SetAlignline] = useState(false);
 
     const [search, setSearch] = useState("");
-    const [priceRange, setPricerange] = useState(12);
+    const [priceRange, setPricerange] = useState(2280);
     const [rating, setRating] = useState(5);
 
     const [Data, setdata] = useState([]);
@@ -85,8 +85,8 @@ function Course_list() {
     async function getfilteredResult() {
         try {
             const url = `https://edudev-server-1.onrender.com/api/course_list?search=${search}&category=${selectedCategory}&instructor=${selectedInstructor}&price=${priceRange}`
-            const { data,status } = await axios.get(url);
-            const { leng, total,courses} = data;
+            const { data, status } = await axios.get(url);
+            const { leng, total, courses } = data;
             setShowing_courses_no(leng);
             setTotal_courses_no(total);
 
@@ -95,7 +95,7 @@ function Course_list() {
             } else {
                 SetZeroResult(false);
             }
-            if ((courses)&&(status===200)){
+            if ((courses) && (status === 200)) {
                 setdata(courses);
                 setSearch("");
             }
@@ -135,76 +135,45 @@ function Course_list() {
 
 
     return (
-        <div className='course_list' id='course_list'>
+        <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <Navbar />
-            <header className='course_list_header'>
-                <h1 className='course_list_header_title'>
-                    Course List
-                </h1>
-                <span className='course_list_header_sub_title'>
-                    Home/<span className='course_list_header_sub_sub_title'>
+            <div className='course_list' id='course_list' style={{ padding: "1px" }}>
+                <header className='course_list_header'>
+                    <h1 className='course_list_header_title'>
                         Course List
+                    </h1>
+                    <span className='course_list_header_sub_title'>
+                        Home/<span className='course_list_header_sub_sub_title'>
+                            Course List
+                        </span>
                     </span>
-                </span>
-            </header>
+                </header>
 
-            {/* main sections */}
-            <section className='course_list_main'>
+                {/* main sections */}
+                <section className='course_list_main'>
 
-                <section className='course_list_main_left'>
-                    <div className='course_list_main_left_search_bar'>
-                        <input className='search_input' value={search} onChange={(e) => setSearch(e.target.value)} style={{ textIndent: "6px" }} placeholder='Search...' /><span className='search_icon' onClick={() => getfilteredResult()} style={{ color: "white", backgroundColor: "coral", height: "32px", width: "60px" }}><SearchOutlined /></span>
-                    </div>
-                    {
+                    <section className='course_list_main_left'>
+                        <div className='course_list_main_left_search_bar'>
+                            <input className='search_input' value={search} onChange={(e) => setSearch(e.target.value)} style={{ textIndent: "6px" }} placeholder='Search...' />
+                        </div>
+                        {
 
-                        <div className='all_filters' id='all_filters' >
-                            {
-                                Screen_small ? (
-                                    <>
-                                        <span className='cancle_button' onClick={() => {
-                                            window.scrollTo(0, 0);
-                                            Set_filtering_for_sm(false)
-                                        }} ><CancelRounded fontSize='large' sx={{ color: "coral" }} /></span>
-                                    </>
-                                ) : ""
-                            }
-
-
-                            <div className='top_categories_filter'>
-                                <h1 className='top_categories_title'>Top Categories </h1>
-                                {categories_Data.length > 0 ? Array.isArray(categories_Data) && categories_Data.map((item, i) => {
-                                    return (
-                                        <div className='categoty_filter_item' key={i}>
-                                            <input
-                                                className='checkbox'
-                                                name='category'
-                                                type='checkbox'
-                                                id={`checkboxes-${i}`}
-                                                style={{ backgroundColor: "coral", color: "coral", cursor: "pointer" }}
-                                                value={item.name}
-                                                checked={selectedCategory === item.name}
-                                                onChange={() => {
-                                                    if (selectedCategory !== item.name) {
-                                                        handleCheckboxChange(item.name);
-                                                    } else {
-                                                        setSelectedCategory("")
-                                                    }
-                                                }}
-                                            />
-                                            {item.name}
-                                        </div>
-
-                                    )
-                                })
-                                    : <CircularProgress />}
-
-                            </div>
-
-                            {/* 2nd item */}
-                            <div className='top_instructors_filter'>
-                                <h1 className='top_instructos_title'>Top Instructors</h1>
+                            <div className='all_filters' id='all_filters' >
                                 {
-                                    Instructors_data.length > 0 && Array.isArray(Instructors_data) && Instructors_data.map((item, i) => {
+                                    Screen_small ? (
+                                        <>
+                                            <span className='cancle_button' onClick={() => {
+                                                window.scrollTo(0, 0);
+                                                Set_filtering_for_sm(false)
+                                            }} ><CancelRounded fontSize='large' sx={{ color: "coral" }} /></span>
+                                        </>
+                                    ) : ""
+                                }
+
+
+                                <div className='top_categories_filter'>
+                                    <h1 className='top_categories_title'>Top Categories </h1>
+                                    {categories_Data.length > 0 ? Array.isArray(categories_Data) && categories_Data.map((item, i) => {
                                         return (
                                             <div className='categoty_filter_item' key={i}>
                                                 <input
@@ -214,151 +183,182 @@ function Course_list() {
                                                     id={`checkboxes-${i}`}
                                                     style={{ backgroundColor: "coral", color: "coral", cursor: "pointer" }}
                                                     value={item.name}
-                                                    checked={selectedInstructor === item.name} // Set checked based on selectedCategory state
+                                                    checked={selectedCategory === item.name}
                                                     onChange={() => {
-                                                        if (selectedInstructor !== item.name) {
-                                                            setSelectedInstructor(item.name);
+                                                        if (selectedCategory !== item.name) {
+                                                            handleCheckboxChange(item.name);
                                                         } else {
-                                                            setSelectedInstructor("")
+                                                            setSelectedCategory("")
                                                         }
                                                     }}
                                                 />
                                                 {item.name}
                                             </div>
+
                                         )
                                     })
+                                        : <CircularProgress />}
+
+                                </div>
+
+                                {/* 2nd item */}
+                                <div className='top_instructors_filter'>
+                                    <h1 className='top_instructos_title'>Top Instructors</h1>
+                                    {
+                                        Instructors_data.length > 0 && Array.isArray(Instructors_data) && Instructors_data.map((item, i) => {
+                                            return (
+                                                <div className='categoty_filter_item' key={i}>
+                                                    <input
+                                                        className='checkbox'
+                                                        name='category'
+                                                        type='checkbox'
+                                                        id={`checkboxes-${i}`}
+                                                        style={{ backgroundColor: "coral", color: "coral", cursor: "pointer" }}
+                                                        value={item.name}
+                                                        checked={selectedInstructor === item.name} // Set checked based on selectedCategory state
+                                                        onChange={() => {
+                                                            if (selectedInstructor !== item.name) {
+                                                                setSelectedInstructor(item.name);
+                                                            } else {
+                                                                setSelectedInstructor("")
+                                                            }
+                                                        }}
+                                                    />
+                                                    {item.name}
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+
+
+                                {/* 4th item price filter */}
+                                <div className='price_filter'>
+                                    <h1 className='price_filter_title'>Price Filter</h1>
+                                    <Slider
+                                        aria-label="Price"
+                                        defaultValue={2280}
+                                        getAriaValueText={getrangeValue}
+                                        valueLabelDisplay="auto"
+                                        step={10}
+                                        marks
+                                        min={10}
+                                        max={10000}
+                                        color={"primary"}
+
+                                    />
+                                    <p style={{ fontSize: "19px" }}>Price: ₹{priceRange}</p>
+
+                                </div>
+
+
+                                {/* 5th item filter with rating */}
+                                <div className='rating_filter'>
+                                    <h1 className='rating_filter_title'>Ratings</h1>
+                                    <div className='categoty_filter_item'>
+                                        <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={5} checked={rating == 5 ? true : false} onChange={(e) => setRating(e.target.value)} />
+                                        🌟🌟🌟🌟🌟
+                                    </div>
+
+                                    <div className='categoty_filter_item'>
+                                        <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={4} checked={rating == 4} onChange={(e) => setRating(e.target.value)} />
+                                        🌟🌟🌟🌟 ✰
+                                    </div>
+
+                                    <div className='categoty_filter_item'>
+                                        <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={3} checked={rating == 3} onChange={(e) => setRating(e.target.value)} />
+                                        🌟🌟🌟 ✰ ✰
+                                    </div>
+
+                                    <div className='categoty_filter_item'>
+                                        <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={2} checked={rating == 2} onChange={(e) => setRating(e.target.value)} />
+                                        🌟🌟 ✰ ✰ ✰
+                                    </div>
+
+
+                                    <div className='categoty_filter_item'>
+                                        <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={1} checked={rating == 1} onChange={(e) => setRating(e.target.value)} />
+                                        🌟 ✰ ✰  ✰  ✰
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        }
+                    </section>
+
+
+                    {/* right section */}
+                    <section className='course_list_main_right'>
+                        <div className='course_list_main_right_top'>
+                            <span className='course_list_main_right_top_filtered_results'>Showing {showing_courses_no} Courses of {total_courses_no}</span>
+                            <div className='right_top_filters'>
+                                <div className='sort_by' id='sort_by'>
+                                    <span className='sort_title'>Sort by:</span>
+                                    <select className='sort_by_select_input'>
+                                        <option className='sort_by_select_input_option' value={"popularity"}>popularity</option>
+                                        <option className='sort_by_select_input_option' value={"Rating"}>Rating</option>
+                                    </select>
+                                </div>
+                                <span className='view_type_one' onClick={() => SetAlignline(false)} style={{ border: !alignline ? "1px solid coral" : "" }}>
+                                    <AppsIcon fontSize='medium' />
+                                </span>
+                                <span className='view_type_two' onClick={() => SetAlignline(true)} style={{ border: alignline ? "1px solid coral" : "" }}>
+                                    <ListIcon fontSize='medium' />
+                                </span>
+                                {
+                                    Screen_small ? (
+                                        <>
+                                            <span className='filters_for_sm_screen' onClick={() => Set_filtering_for_sm((p) => !p)} style={{ border: filtering_for_sm ? "1px solid coral" : "" }}>
+                                                <FilterAltIcon fontSize='medium' />
+                                            </span>
+
+                                        </>
+                                    ) : ""
                                 }
-                            </div>
 
 
-                            {/* 4th item price filter */}
-                            <div className='price_filter'>
-                                <h1 className='price_filter_title'>Price Filter</h1>
-                                <Slider
-                                    aria-label="Price"
-                                    defaultValue={180}
-                                    getAriaValueText={getrangeValue}
-                                    valueLabelDisplay="auto"
-                                    step={10}
-                                    marks
-                                    min={10}
-                                    max={10000}
-                                    color={"primary"}
 
-                                />
-                                <p style={{ fontSize: "19px" }}>Price: Rs.{priceRange}</p>
-
-                            </div>
-
-
-                            {/* 5th item filter with rating */}
-                            <div className='rating_filter'>
-                                <h1 className='rating_filter_title'>Ratings</h1>
-                                <div className='categoty_filter_item'>
-                                    <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={5} checked={rating == 5 ? true : false} onChange={(e) => setRating(e.target.value)} />
-                                    🌟🌟🌟🌟🌟
-                                </div>
-
-                                <div className='categoty_filter_item'>
-                                    <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={4} checked={rating == 4} onChange={(e) => setRating(e.target.value)} />
-                                    🌟🌟🌟🌟 ✰
-                                </div>
-
-                                <div className='categoty_filter_item'>
-                                    <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={3} checked={rating == 3} onChange={(e) => setRating(e.target.value)} />
-                                    🌟🌟🌟 ✰ ✰
-                                </div>
-
-                                <div className='categoty_filter_item'>
-                                    <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={2} checked={rating == 2} onChange={(e) => setRating(e.target.value)} />
-                                    🌟🌟 ✰ ✰ ✰
-                                </div>
-
-
-                                <div className='categoty_filter_item'>
-                                    <input className='checkbox' type='checkbox' id='checkboxes' style={{ backgroundColor: "coral", color: "coral" }} name='rating' value={1} checked={rating == 1} onChange={(e) => setRating(e.target.value)} />
-                                    🌟 ✰ ✰  ✰  ✰
-                                </div>
                             </div>
 
                         </div>
-
-
-                    }
-                </section>
-
-
-                {/* right section */}
-                <section className='course_list_main_right'>
-                    <div className='course_list_main_right_top'>
-                        <span className='course_list_main_right_top_filtered_results'>Showing {showing_courses_no} Courses of {total_courses_no}</span>
-                        <div className='right_top_filters'>
-                            <div className='sort_by' id='sort_by'>
-                                <span className='sort_title'>Sort by:</span>
-                                <select className='sort_by_select_input'>
-                                    <option className='sort_by_select_input_option' value={"popularity"}>popularity</option>
-                                    <option className='sort_by_select_input_option' value={"Rating"}>Rating</option>
-                                </select>
-                            </div>
-                            <span className='view_type_one' onClick={() => SetAlignline(false)} style={{ border: !alignline ? "1px solid coral" : "" }}>
-                                <AppsIcon fontSize='medium' />
-                            </span>
-                            <span className='view_type_two' onClick={() => SetAlignline(true)} style={{ border: alignline ? "1px solid coral" : "" }}>
-                                <ListIcon fontSize='medium' />
-                            </span>
+                        <div className="course_list_main_right_bottom">
                             {
-                                Screen_small ? (
+                                !alignline ? (
                                     <>
-                                        <span className='filters_for_sm_screen' onClick={() => Set_filtering_for_sm((p) => !p)} style={{ border: filtering_for_sm ? "1px solid coral" : "" }}>
-                                            <FilterAltIcon fontSize='medium' />
-                                        </span>
 
-
+                                        {Data.length > 0 ? (
+                                            <>
+                                                {
+                                                    Data.map((item, i) => {
+                                                        return <Coursecard w={true} b={true} admin={false} id={item._id} course_duration={item.course_duration} course_name={item.course_name} course_lectures={item.course_lectures} course_thumnail={item.course_thumbnail} skill_level={item.skill_level} course_price={item.course_price} key={i} />
+                                                    })
+                                                }
+                                            </>
+                                        ) : !zero_res ? <CircularProgress /> : <h1>No courses found</h1>}
 
                                     </>
-                                ) : ""
-                            }
-
-
-
+                                ) : (
+                                    <>
+                                        {Data.length > 0 ? (
+                                            <>
+                                                {
+                                                    Data.map((item, i) => {
+                                                        return <Course_card_line_align item={item} key={i} />
+                                                    })
+                                                }
+                                            </>
+                                        ) : !zero_res ? <CircularProgress /> : <h1>No courses found</h1>}
+                                    </>
+                                )}
                         </div>
 
-                    </div>
-                    <div className="course_list_main_right_bottom">
-                        {
-                            !alignline ? (
-                                <>
-
-                                    {Data.length > 0 ? (
-                                        <>
-                                            {
-                                                Data.map((item, i) => {
-                                                    return <Coursecard w={true} b={true} admin={false} id={item._id} course_duration={item.course_duration} course_name={item.course_name} course_lectures={item.course_lectures} course_thumnail={item.course_thumbnail} skill_level={item.skill_level} course_price={item.course_price} key={i} />
-                                                })
-                                            }
-                                        </>
-                                    ) : !zero_res ? <CircularProgress /> : <h1>No courses found</h1>}
-
-                                </>
-                            ) : (
-                                <>
-                                    {Data.length > 0 ? (
-                                        <>
-                                            {
-                                                Data.map((item, i) => {
-                                                    return <Course_card_line_align item={item} key={i} />
-                                                })
-                                            }
-                                        </>
-                                    ) : !zero_res ? <CircularProgress /> : <h1>No courses found</h1>}
-                                </>
-                            )}
-                    </div>
+                    </section>
 
                 </section>
 
-            </section>
-
+            </div>
             <Contactpage />
 
 

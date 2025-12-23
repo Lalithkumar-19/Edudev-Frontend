@@ -1,30 +1,82 @@
+/* Third Step CSS */
 .third_step {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    gap: 2rem;
 
-    & form {
+    form {
         display: flex;
         flex-direction: column;
-        & label{
-            font-size:20px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: brown ;
-        }
-        .ql-container {
-margin-top: 12px;
-            .ql-editor {
-                & p {
-                    text-align: left;
-                }
-                & img{
-                    width: 400px;
-                    height: 400px;
-                }
+        gap: 1.5rem;
 
+        & label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary, #2d3748);
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        /* ReactQuill Styling */
+        .quill {
+            background: white;
+            border-radius: 8px;
+
+            .ql-toolbar {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                border-color: #e2e8f0;
+                background-color: #f8fafc;
+            }
+
+            .ql-container {
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-color: #e2e8f0;
+                min-height: 200px;
+                font-size: 1rem;
+                font-family: 'Inter', sans-serif;
+            }
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: var(--primary, #fe7f50);
+                background-color: #fffaf0;
             }
         }
     }
 
+    .create_course {
+        align-self: flex-end;
+        padding: 12px 30px;
+        background: linear-gradient(135deg, var(--primary, #fe7f50), #ff6b3d);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(254, 127, 80, 0.25);
+        transition: transform 0.2s, box-shadow 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(254, 127, 80, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
 }

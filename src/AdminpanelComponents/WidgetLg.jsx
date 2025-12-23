@@ -42,15 +42,17 @@ export default function WidgetLg() {
           return (
             <tr className="widgetLgTr" key={i}>
               <td className="widgetLgUser">
-                <img
-                  src={"https://edudev-server-1.onrender.com/" + item.userId.dp}
-                  alt="user image"
-                  className="widgetLgImg"
-                />
-                <span className="widgetLgName">{item.shipping.name}</span>
+                <div className="widgetLgUserContainer">
+                  <img
+                    src={"https://edudev-server-1.onrender.com/" + item.userId.dp}
+                    alt="user image"
+                    className="widgetLgImg"
+                  />
+                  <span className="widgetLgName">{item.shipping.name}</span>
+                </div>
               </td>
               <td className="widgetLgDate">{format(new Date(item.createdAt), " d-mm-yyyy")}</td>
-              <td className="widgetLgAmount">₹{(item.subtotal)/100}</td>
+              <td className="widgetLgAmount">₹{(item.subtotal) / 100}</td>
               <td className="widgetLgStatus">
                 <Button type="Approved" >{item.payment_status}</Button>
               </td>

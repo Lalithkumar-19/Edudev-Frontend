@@ -1,63 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Brand Colors */
+    --primary: #ff7f50;
+    /* Coral */
+    --primary-hover: #ff6347;
+    --secondary: #023e8a;
+    /* Deep Blue from App.js */
+    --accent-gradient: linear-gradient(135deg, #ff7f50 0%, #ff4b1f 100%);
+
+    /* Neutral Colors */
+    --bg-body: #f8f9fa;
+    /* Soft White/Grey */
+    --bg-card: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    /* Spacing */
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --nav-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    border: none;
-    border-right-style: none;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-#new_review_form {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: 0px 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    min-height: 350px;
-
-    .review_header_title {
-        margin-left: 0px;
-    }
-
-    .review_taken_form {
-        margin-top: 12px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        gap: 20px;
-        align-items: center;
-
-        justify-content: flex-start;
-
-        .review_title,
-        .reviewer_name,
-        .reviewer_email,
-        .reviewer_website {
-            width: 350px;
-            height: 40px;
-            border: none;
-            outline-style: none;
-            background-color: whitesmoke;
-            margin: 10px;
-            margin-left: 0px;
-
-            &::placeholder {
-                color: rebeccapurple;
-                width: 80%;
-                padding: 5px;
-            }
-
-        }
-
-        .submit_button {
-            padding: 0px 20px;
-        }
-    }
-
-
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-input{
-    text-indent: 6px;
+::-webkit-scrollbar-track {
+    background: transparent;
 }
-input{
-    text-align: 5px;
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+button {
+    font-family: inherit;
 }

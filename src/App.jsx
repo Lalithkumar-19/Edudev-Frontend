@@ -1,4 +1,4 @@
-import React,{lazy} from "react"
+import React, { lazy } from "react"
 import Homepage from "./Pages/Homepage"
 import "../src/App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -16,25 +16,27 @@ import Admin from "./AdminPanels/Admin"
 import Instructor_panel from "./AdminPanels/Instructor_panel"
 import Notfoundpage from "./Pages/Notfoundpage"
 import Profile from "./Admin_instructor/Profile"
-const Online_Course_overview =lazy(()=>import("./Pages/Online_Course_overview"))
-const Feautured_courses =lazy(()=>import ("./Pages/Feautured_courses"))
-const Blogsshowingpage =lazy(()=>import("./Pages/Blogsshowingpage"))
-const Blogviewer=lazy(()=>import("./Multiuse_Pages/Blogviewer"))
-const Bookshopping=lazy(()=>import("./Pages/Bookshopping"))
-const Courseplayer=lazy(()=>import ("./Pages/Courseplayer"))
-const Bookshopping_details=lazy(()=>import ("./Pages/Bookshopping_details"))
-const Cartpage=lazy(()=>import("./Pages/Cartpage"))
-const About_instructor=lazy(()=>import("./Multiuse_Pages/About_instructor"))
-const Checkoutpage=lazy(()=>import("./Pages/Checkoutpage"))
-const Payment_Success=lazy(()=>import ("./PaymentPages/Payment_Success"))
-const Faqpage=lazy(()=>import ("./FAQ_page/Faqpage"))
-const Instructor_apply=lazy(()=>import ("./Instructor_Apply/Instructor_apply"))
-const OrdersPage=lazy(()=>import("./UsersPFPages/Orderspage"))
-const Dynamic_application_shower=lazy(()=>import("./Modals/Dynamic_application_shower"))
+import CoursesPage from './Pages/CoursesPage';
+const Online_Course_overview = lazy(() => import("./Pages/Online_Course_overview"))
+const Feautured_courses = lazy(() => import("./Pages/Feautured_courses"))
+const Blogsshowingpage = lazy(() => import("./Pages/Blogsshowingpage"))
+const Blogviewer = lazy(() => import("./Multiuse_Pages/Blogviewer"))
+const Bookshopping = lazy(() => import("./Pages/Bookshopping"))
+const Courseplayer = lazy(() => import("./Pages/Courseplayer"))
+const Bookshopping_details = lazy(() => import("./Pages/Bookshopping_details"))
+const Cartpage = lazy(() => import("./Pages/Cartpage"))
+const About_instructor = lazy(() => import("./Multiuse_Pages/About_instructor"))
+const Checkoutpage = lazy(() => import("./Pages/Checkoutpage"))
+const Payment_Success = lazy(() => import("./PaymentPages/Payment_Success"))
+const Faqpage = lazy(() => import("./FAQ_page/Faqpage"))
+const Instructor_apply = lazy(() => import("./Instructor_Apply/Instructor_apply"))
+const OrdersPage = lazy(() => import("./UsersPFPages/Orderspage"))
+const Dynamic_application_shower = lazy(() => import("./Modals/Dynamic_application_shower"))
 const Profilepage = lazy(() => import("./UsersPFPages/ProfilePage"))
 const BlogEditor = lazy(() => import("./Pages/BlogWriting_page"))
 const WishlistPage = lazy(() => import("./UsersPFPages/WIshlistPage"))
 const MyLearningsPage = lazy(() => import("./UsersPFPages/My_learnings"))
+
 
 
 
@@ -68,19 +70,7 @@ function App() {
           <Route Component={Cartpage} path="/yourcart" />
           <Route path="*" Component={Notfoundpage} />
 
-//routes with elements
-          <Route element={
-            <>
-              <Navbar />
-              <div className="courses_route">
-                <h1 style={{ textAlign: "center", color: '#023e8a' }} >Featured Courses</h1><br />
-
-                <img src={Online_course_img} alt="online_courses_png" />
-              </div>
-              <Feautured_courses courses_restrict={true} />
-              <Contactpage />
-            </>
-          } path="/courses" />
+          <Route element={<CoursesPage />} path="/courses" />
 
           <Route element={
             <>
@@ -99,9 +89,12 @@ function App() {
           {localStorage.getItem("admin_token") &&
             <>
               <Route path="/admin" Component={Admin} />
-              <Route path="admin/application_see/:id" Component={Dynamic_application_shower} />
+
             </>
+
           }
+
+          <Route path="/application_see/:id" Component={Dynamic_application_shower} />
 //for instructor
           {
             localStorage.getItem("instructor-token") ? <Route path="/instructor_panel" Component={Instructor_panel} /> : ""
@@ -110,15 +103,15 @@ function App() {
 
 //for logged in people
           {/* {localStorage.getItem("token") && */}
-            {/* <> */}
-              <Route path="/myorders" Component={OrdersPage} />
-              <Route path="/profile" Component={Profile} />
-              <Route path="/yourWishlist" Component={WishlistPage} />
-              <Route path="/MyLearnings" Component={MyLearningsPage} />
-              <Route Component={Profilepage} path="/profile" />
-              <Route Component={Checkoutpage} path="/yourcart/checkout" />
+          {/* <> */}
+          <Route path="/myorders" Component={OrdersPage} />
+          {/* <Route path="/profile" Component={Profile} /> */}
+          <Route path="/yourWishlist" Component={WishlistPage} />
+          <Route path="/MyLearnings" Component={MyLearningsPage} />
+          <Route Component={Profilepage} path="/profile" />
+          <Route Component={Checkoutpage} path="/yourcart/checkout" />
 
-            {/* </>} */}
+          {/* </>} */}
         </Routes>
 
       </BrowserRouter>

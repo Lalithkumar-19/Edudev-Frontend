@@ -1,49 +1,134 @@
-.first_step{
+/* First Step Form CSS */
+.first_step {
     display: flex;
     flex-direction: column;
     width: 100%;
-    .first_step_form{
+
+    .first_step_form {
         display: flex;
         flex-direction: column;
+        gap: 1.5rem;
+        /* Better spacing between form items */
         padding: 10px;
 
-
-        .form_item{
+        .form_item {
             display: flex;
             flex-direction: column;
-            margin-bottom: 10px;
-            & label{
-                font-size: 18px;
-                color: black;
-                font-weight: 500;
-                margin-bottom: 4px;
+            gap: 0.5rem;
+
+            & label {
+                font-size: 1rem;
+                color: var(--secondary, #2d3748);
+                font-weight: 600;
+                margin-bottom: 2px;
             }
-            & input ,textarea,select{
-                height: 20px;
-                border: none;
+
+            /* Consistent Input Styling */
+            & input,
+            & textarea,
+            & select {
+                width: 100%;
+                padding: 12px 15px;
+                /* Comfortable padding */
+                border: 1px solid #e2e8f0;
+                /* Visible border */
+                border-radius: 8px;
+                background-color: #f8fafc;
+                /* Slight bg to distinguish from white page */
+                font-family: inherit;
+                font-size: 1rem;
                 outline: none;
-                text-indent: 3px;
-            }
-            & textarea{
-                height: 50px;
-                resize: none;
-            }
-            & select{
-            min-width: 100px;
-            text-align: center;
-            }
-            & ul,li{
-                list-style: circle;
-                color: chocolate;
-                text-decoration: none;
-                border-bottom: none;
+                transition: all 0.2s ease;
+                color: #2d3748;
+                min-height: 45px;
+                /* Standard height */
+
+                &:focus {
+                    border-color: var(--primary, #fe7f50);
+                    box-shadow: 0 0 0 3px rgba(254, 127, 80, 0.1);
+                    background-color: white;
+                }
+
+                &::placeholder {
+                    color: #a0aec0;
+                }
             }
 
+            & textarea {
+                min-height: 120px;
+                resize: vertical;
+                line-height: 1.5;
+            }
+
+            /* Remove default select arrows if needed OR style them */
+            & select {
+                cursor: pointer;
+            }
+
+            /* Button Styling inside form items */
+            & button#button {
+                align-self: flex-start;
+                margin-top: 10px;
+                padding: 8px 16px;
+                background-color: #edf2f7;
+                color: #4a5568;
+                border: none;
+                border-radius: 6px;
+                font-weight: 600;
+                cursor: pointer;
+                border: 1px solid #cbd5e1;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: #e2e8f0;
+                    color: #2d3748;
+                }
+            }
+
+            & ul {
+                list-style: none;
+                /* Remove default bullets */
+                padding: 0;
+                margin-top: 8px;
+
+                & li {
+                    position: relative;
+                    padding-left: 20px;
+                    color: #4a5568;
+                    margin-bottom: 4px;
+                    font-size: 0.95rem;
+
+                    &::before {
+                        content: "•";
+                        color: var(--primary, #fe7f50);
+                        font-weight: bold;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
         }
-        .form_item_diff{
-            display: flex;
-        }
-
-
     }
+}
+
+/* React Tags Input Customization overrides */
+.react-tagsinput {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    background-color: #f8fafc !important;
+    padding: 5px !important;
+    min-height: 45px;
+
+    &--focused {
+        border-color: var(--primary, #fe7f50) !important;
+        background-color: white !important;
+    }
+}
+
+.react-tagsinput-tag {
+    background-color: #fff5f5 !important;
+    border: 1px solid #fed7d7 !important;
+    color: #c53030 !important;
+    border-radius: 4px !important;
+    padding: 3px 8px !important;
 }

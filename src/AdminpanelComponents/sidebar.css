@@ -1,45 +1,68 @@
+/* Sidebar CSS */
 .sidebar {
-    flex: 1;
-    height: calc(100vh - 1px);
-    background-color: rgb(251, 251, 255);
-    position: sticky;
-    top: 10px;
-    width: fit-content;
-  }
-  
-  .sidebarWrapper {
-    padding: 20px;
-    color: #555;
-  }
-  
-  .sidebarMenu {
-    margin-bottom: 10px;
-  }
-  
-  .sidebarTitle {
-    font-size: 13px;
-    color: rgb(187, 186, 186);
-  }
-  
-  .sidebarList {
-    list-style: none;
-    padding: 5px;
-  }
-  
-  .sidebarListItem {
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-  }
-  
-  .sidebarListItem.active,
-  .sidebarListItem:hover {
-    background-color: rgb(240, 240, 255);
-  }
-  
-  .sidebarIcon{
-      margin-right: 5px;
-      font-size: 20px !important;
-  }
+  flex: 0 0 260px;
+  /* Fixed width */
+  height: 100vh;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid #f1f5f9;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02);
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebarWrapper {
+  padding: 20px;
+  color: #4a5568;
+}
+
+.sidebarMenu {
+  margin-bottom: 25px;
+}
+
+.sidebarTitle {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebarListItem {
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.sidebarListItem:hover {
+  background-color: #f7fafc;
+  color: var(--primary, #fe7f50);
+  transform: translateX(3px);
+}
+
+.sidebarListItem.active {
+  background: linear-gradient(135deg, rgba(254, 127, 80, 0.1), rgba(255, 255, 255, 0));
+  color: var(--primary, #fe7f50);
+  border-left: 3px solid var(--primary, #fe7f50);
+  font-weight: 600;
+}
+
+.sidebarIcon {
+  margin-right: 10px;
+  font-size: 20px !important;
+  color: inherit;
+  /* inherit color from parent for active state */
+}

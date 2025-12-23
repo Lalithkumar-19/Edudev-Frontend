@@ -1,278 +1,318 @@
+/* Bookshopping Page Styles */
 .bookshopping {
+    min-height: 100vh;
+    background: var(--bg-body);
     display: flex;
     flex-direction: column;
-    padding: 12px;
+}
 
-    @media(width<=600px) {
-        padding: 0px 2px;
-    }
+/* Header Section (Reused Style Pattern) */
+.book_shopping_title {
+    background: white;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+}
 
-    .book_shopping_title {
-        display: flex;
-        flex-direction: column;
+.book_shopping_title .title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+    /* Reset */
+    margin-top: 0;
+    /* Reset */
+}
 
-        .title {
-            margin-left: 0px;
-            margin-top: 20px;
-        }
+.book_shopping_title .sub_title {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
 
-        .sub-title {
-            display: flex;
-            width: 100%;
+.book_shopping_title .sub_sub_title {
+    color: var(--primary);
+    font-weight: 600;
+}
 
-        }
-    }
+/* Search Bar Wrapper */
+.book_search_bar_container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+}
 
-    .best_seller_books {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: white;
-        margin-top: 12px;
+.book_search_input {
+    width: 100%;
+    height: 50px;
+    padding: 0 1.5rem;
+    padding-right: 3rem;
+    border-radius: 50px;
+    border: 2px solid var(--border-color);
+    background: white;
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
+.book_search_input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px rgba(255, 127, 80, 0.15);
+    outline: none;
+}
 
-        .best_seller_books_title {
-            text-align: center;
-            width: 100%;
-            font-size: 23px;
-            margin-left: 0px;
-        }
+.book_search_icon {
+    position: absolute;
+    right: 1.25rem;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    pointer-events: none;
+}
 
-        .best_seller_books_section {
-            padding: 0px;
-            background-color: white;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
-            @media(width<=600px){
-                padding: 0px;
-            }
-        }
+/* Titles */
+.best_seller_books_title,
+.new_releases_title,
+.our_customers_title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 3rem 0 2rem;
+    width: 100%;
+    /* margin-left: 0; */
+    text-decoration: none;
+}
 
-    }
-
-    .best_seller_books_of_the_month {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-
-
-        .books_pic_main_div {
-            width: 50%;
-            background-color: aqua;
-            height: 400px;
-        }
-
-        .best_seller_books_right {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            background-color: cadetblue;
-            align-items: start;
-            justify-content: center;
-            gap: 14px;
-            padding: 24px;
-
-            @media (width<=600px) {
-                padding: 3px;
-
-            }
-
-            .heading {
-                font-weight: 800;
-                font-size: 23px;
-                color: white;
-            }
-
-            .book_desc {
-                text-align: justify;
-                line-height: 22px;
-                color: white;
-                text-overflow: ellipsis;
-            }
-
-            .book_rate {
-                color: white;
-                margin-bottom: 2px;
-            }
-
-            .buy_now_button {
-                color: white;
-                background-color: coral;
-                width: 160px;
-                height: 40px;
-                border: none;
-                cursor: pointer;
-                border-radius: 12px;
-            }
+/* Best Seller / New Releases Grid */
+.best_seller_books_section,
+.new_releases_books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background: transparent;
+}
 
 
-        }
-    }
+/* Promo Sections (Best Seller Month, E-Products) */
+.best_seller_books_of_the_month,
+.all_e_products,
+.see_all_products_footer {
+    display: flex;
+    max-width: 1200px;
+    margin: 4rem auto;
+    width: 90%;
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
 
-    .all_e_products {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin-top: 50px;
-        border-radius: 20px;
-        background-color: floralwhite;
+.best_seller_books_of_the_month {
+    background: linear-gradient(135deg, var(--secondary) 0%, #1a1a2e 100%);
+    color: white;
+}
+
+.all_e_products {
+    background: linear-gradient(135deg, white 0%, #fff5f2 100%);
+}
+
+.see_all_products_footer {
+    background: linear-gradient(135deg, #fff8dc 0%, #fff 100%);
+}
+
+.books_pic_main_div,
+.best_seller_books_right,
+.all_e_products_left,
+.all_e_products_right,
+.see_all_products_footer_left,
+.see_all_products_footer_right {
+    flex: 1;
+    position: relative;
+}
+
+/* Image Containers */
+.books_pic_main_div,
+.all_e_products_right,
+.see_all_products_footer_right {
+    min-height: 400px;
+}
+
+.books_pic_main_div img,
+.all_e_products_right img,
+.see_all_products_footer_right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 
-        .all_e_products_left {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            width: 50%;
-            padding: 30px;
-            gap: 13px;
-            justify-content: center;
+/* Content Containers */
+.best_seller_books_right,
+.all_e_products_left,
+.see_all_products_footer_left {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
 
-            .all_e_products_left_head_title {
-                font-size: 24px;
-                font-weight: 600;
+/* Promo Typography */
+.best_seller_books_right .heading,
+.all_e_products_left_head_title,
+.see_all_products_footer_left .heading {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
 
-            }
+.best_seller_books_right .book_desc,
+.all_e_products_left_desc,
+.heading_desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 500px;
+    text-align: left;
+}
 
-            .all_e_products_left_desc {
-                text-align: justify;
-                line-height: 23px;
-            }
 
-            .see_our_products_button {
-                width: 160px;
-                height: 40px;
-                border-radius: 12px;
-                border: none;
-                color: white;
-                background-color: coral;
-                cursor: pointer;
-            }
+/* Buttons */
+.buy_now_button,
+.see_our_products_button,
+.see_our_products {
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(255, 127, 80, 0.3);
+    text-align: center;
+}
 
-        }
+.buy_now_button:hover,
+.see_our_products_button:hover,
+.see_our_products:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 127, 80, 0.4);
+    background: #ff6b3d;
+}
 
-        .all_e_products_right {
-            width: 50%;
-            height: 300px;
-            display: flex;
-            align-items: end;
+/* Customers */
+.our_customers_title {
+    text-decoration: none;
+}
 
-        }
-    }
+.our_customer_reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
 
-    .new_releases {
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-        margin-top: 30px;
-        width: 100%;
-        background-color: white;
+/* Pagination */
+.pagination_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 4rem;
+}
 
-        .new_releases_title {
-            text-align: center;
-            margin-left: 0px;
-        }
+.pagination_btn,
+.pagination_page_number {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background: white;
+    color: var(--text-main);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
 
-        .new_releases_books {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            gap: 15px;
-            align-items: center;
-            justify-content: center;
-        }
+.pagination_btn:hover:not(.disabled),
+.pagination_page_number:hover:not(.active) {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
 
-    }
+.pagination_page_number.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 127, 80, 0.4);
+}
 
-    .our_customers {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        margin-bottom: 30px;
-        align-items: center;
-        justify-content: center;
+.pagination_btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f1f5f9;
+}
 
-        .our_customers_title {
-            width: 100%;
-            margin-left: 0px;
-            text-align: center;
-            margin-top: 40px;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-            outline-offset: 4px;
-        }
+/* No results text */
+.no_results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
 
-        .our_customer_reviews {
-            padding: 0px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            gap: 10px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            justify-content: center;
-            /* background-color: aqua; */
-        }
-    }
+@media (max-width: 900px) {
 
+    .best_seller_books_of_the_month,
+    .all_e_products,
     .see_all_products_footer {
-        display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .books_pic_main_div,
+    .all_e_products_right,
+    .see_all_products_footer_right {
+        order: -1;
+        /* Image first */
+        height: 300px;
+        min-height: auto;
+    }
+
+    .all_e_products_right {
+        order: 1;
+        /* Image last for middle section if desired, or -1 consistent */
+    }
+
+    .best_seller_books_right,
+    .all_e_products_left,
+    .see_all_products_footer_left {
         width: 100%;
-        margin-bottom: 30px;
-        border-radius: 20px;
+        padding: 2rem;
+        align-items: center;
+        text-align: center;
+    }
 
-        background-color: cornsilk;
-
-
-        .see_all_products_footer_left {
-            width: 50%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .heading {
-                font-size: 24px;
-                font-weight: 700;
-
-            }
-
-            .heading_desc {
-                text-align: justify;
-                line-height: 20px;
-                max-width: 300px;
-            }
-
-            .see_our_products {
-                width: 190px;
-                height: 40px;
-                color: white;
-                background-color: coral;
-                border: none;
-                border-radius: 17px;
-                cursor: pointer;
-                outline-style: none;
-
-                @media(width<=800px) {
-                    align-self: flex-start;
-
-                }
-            }
-        }
-
-        .see_all_products_footer_right {
-            width: 50%;
-            height: 400px;
-            margin-bottom: 30px;
-        }
-
+    .best_seller_books_right .book_desc,
+    .all_e_products_left_desc,
+    .heading_desc {
+        text-align: center;
     }
 }

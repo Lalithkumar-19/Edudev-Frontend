@@ -4,7 +4,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import Aos from 'aos';
 import "aos/dist/aos.css";
-import { DeleteForever,FavoriteOutlined } from '@mui/icons-material';
+import { DeleteForever, FavoriteOutlined } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import pic from "../assets/developerpic.jpg"
 
 
-function Coursecard({ animation, b, admin, id, course_thumnail, course_name, course_duration, course_price, course_lectures, skill_level, wished_list, buyed,creator,review_length }) {
+function Coursecard({ animation, b, admin, id, course_thumnail, course_name, course_duration, course_price, course_lectures, skill_level, wished_list, buyed, creator, review_length }) {
     const wishlist = useSelector(state => state.wishList);
     const status_of_list = Array.isArray(wishlist) && wishlist.some(item => item._id === id);
     const dispatch = useDispatch();
@@ -74,9 +74,9 @@ function Coursecard({ animation, b, admin, id, course_thumnail, course_name, cou
                 </div>
                 <div className='course_details'>
                     <div className='course_creator_details'>
-                        <img src={creator?creator.instructor_pic:pic} alt="creator_pic" />
+                        <img src={creator ? creator.instructor_pic : pic} alt="creator_pic" />
                         <span className='course_creator_main_details'>
-                            <h3 className='course_creator_name'>{creator&&creator.instructor_name}</h3>
+                            <h3 className='course_creator_name'>{creator && creator.instructor_name}</h3>
                             <p className='course_rating'>4.7 &nbsp; ⭐({review_length}) &nbsp; </p>
                         </span>
                     </div>

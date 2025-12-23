@@ -5,25 +5,25 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { useNavigate } from 'react-router-dom';
 
-function Team_member_card({id,name,role,socialmedia}) {
-    const navigate=useNavigate();
+function Team_member_card({ id, name, role, socialmedia, image }) {
+    const navigate = useNavigate();
     return (
 
-        <div class="container">
+        <div className="container">
 
-            <div class="inner_container">
-                <div class="our-team">
-                    <div class="picture">
-                        <img class="img-fluid" src="https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-66609.jpg" />
+            <div className="inner_container">
+                <div className="our-team">
+                    <div className="picture">
+                        <img className="img-fluid" src={image || "https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-66609.jpg"} alt={name} />
                     </div>
-                    <div class="team-content" onClick={()=>navigate("/instructors/about_instructor/"+id)}>
-                        <h3 class="name" style={{cursor:"pointer"}}>{name}</h3>
-                        <h4 class="title">{role}</h4>
+                    <div className="team-content" onClick={() => navigate("/instructors/about_instructor/" + id)}>
+                        <h3 className="name" style={{ cursor: "pointer" }}>{name}</h3>
+                        <h4 className="title">{role}</h4>
                     </div>
-                    <ul class="social">
-                        <li><a href={socialmedia.Linkedin&&socialmedia.Linkedin}><LinkedInIcon/></a></li>
-                        <li><a href={socialmedia.facebook&&socialmedia.facebook}><FacebookIcon/></a></li>
-                        <li><a href={socialmedia.twitter&&socialmedia.twitter}><TwitterIcon/></a></li>
+                    <ul className="social">
+                        <li><a href={socialmedia?.Linkedin && socialmedia.Linkedin}><LinkedInIcon /></a></li>
+                        <li><a href={socialmedia?.facebook && socialmedia.facebook}><FacebookIcon /></a></li>
+                        <li><a href={socialmedia?.twitter && socialmedia.twitter}><TwitterIcon /></a></li>
                     </ul>
                 </div>
             </div>

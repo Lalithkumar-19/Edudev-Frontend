@@ -26,10 +26,10 @@ function Checkoutpage() {
 
 
     const handlecheckout = async () => {
-        const res = await axios.post('https://edudev-server-1.onrender.com/checkout', {cartItems:cartData,userId:localStorage.getItem("id")});
+        const res = await axios.post('https://edudev-server-1.onrender.com/checkout', { cartItems: cartData, userId: localStorage.getItem("id") });
         const stripe = await stripePromise;
         await stripe.redirectToCheckout({ sessionId: res.data.id });
-       
+
     }
 
 
@@ -45,7 +45,7 @@ function Checkoutpage() {
                 </span>
             </header>
             <section className='checkout_page_main'>
-               
+
                 <div className='checkout_page_main_right'>
                     <section className='final_checkout_details'>
                         <h1 className='final_checkout_details_title'>

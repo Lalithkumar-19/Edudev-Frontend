@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./userList.css";
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { AccessibilitySharp, NotAccessibleSharp } from '@mui/icons-material';
@@ -13,7 +14,7 @@ import { Toaster, toast } from 'react-hot-toast';
 
 
 const new_window = (id) => {
-    window.open("admin/application_see/" + id, "application_viewing_window", "height=400,width=800", "_blank")
+    window.open("/application_see/" + id, "application_viewing_window", "height=400,width=800", "_blank")
 }
 
 
@@ -26,10 +27,10 @@ export default function Application_manage() {
         await fetch(`https://edudev-server-1.onrender.com/delete_single_instructor_application?id=${id}&?token=${localStorage.getItem("admin_token")}`).then(res => {
             if (res.status === 200) {
                 toast.success("Succesfuuly denied Application");
-                rows.forEach(item=>{
-                    if(item.id===id){
-                       let index= rows.indexOf(item);
-                       rows.splice(index,1);
+                rows.forEach(item => {
+                    if (item.id === id) {
+                        let index = rows.indexOf(item);
+                        rows.splice(index, 1);
                     }
                 })
             }
@@ -135,23 +136,29 @@ export default function Application_manage() {
     })
 
     return (
-        <Box sx={{ height: 600, width: '100%' }}>
+        <div className="userList">
             <Toaster />
-            <h1>Aplications Management</h1>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                initialState={{
-                    pagination: {
-                        paginationModel: {
-                            pageSize: 7,
+            <div className="userListHeader">
+                <h2 className="userListTitle">Applications Management</h2>
+            </div>
+
+            <div className="userListContainer">
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    initialState={{
+                        pagination: {
+                            paginationModel: {
+                                pageSize: 10,
+                            },
                         },
-                    },
-                }}
-                pageSizeOptions={[7]}
-                checkboxSelection
-                disableRowSelectionOnClick
-            />
-        </Box>
+                    }}
+                    pageSizeOptions={[10]}
+                    checkboxSelection
+                    disableRowSelectionOnClick
+                    className="userListDataGrid"
+                />
+            </div>
+        </div>
     );
 }

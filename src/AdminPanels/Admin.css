@@ -1,151 +1,37 @@
-/* .admin_page {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  .admin_menu_bar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 230px;
-    height: fit-content;
-    background-color: white;
-    align-items: center;
-
-    .admin_menu_bar_title {
-      font-size: 24px;
-      color: coral;
-    }
-
-    .admin_menu_bar_main {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .menu_item {
-        border: none;
-        list-style: none;
-        width: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 7px 12px;
-        gap: 5px;
-        opacity: .7;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        border-radius: 10px;
-        .menu_item_title {
-          font-size: 19px;
-        }
-      }
-    }
-
-
-
-  }
-
-  .credits_section {
-    width: 100%;
-    padding: 20px 1px;
-    border-radius: 10px;
-    color: black;
-    font-size: 24px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    .edudev {
-      color: coral;
-      font-size: 12px;
-    }
-
-  }
-
-  .admin_page_right {
-    width: 100%;
-    display: flex;
-    padding: 0px 20px;
-    flex-direction: column;
-    gap: 10px;
-   
-
-    .admin_page_right_title {
-      margin-left: 0px;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      font-size: 24px;
-
-    }
-
-    .meta_informations {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      overflow: hidden;
-      gap: 20px;
-      justify-content: flex-start;
-      align-items: center;
-      margin-bottom: 20px;
-
-      .meta_info_box {
-        width: 160px;
-        background-color: coral;
-        border-radius: 10px;
-        height: 70px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 6px;
-        justify-content: center;
-
-        .meta_info_name {
-          margin: 3px;
-          text-align: center;
-          color: white;
-
-        }
-
-        .meta_info_details {
-          width: 100%;
-          text-align: center;
-          font-size: 22px;
-          color: white;
-          font-weight: 700;
-
-        }
-      }
-    }
-
-    .visualize_section {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      flex-direction: column-reverse;
-      justify-content: center;
-      align-items: center;
-
-    }
-  }
-}
-
- */
-
-
- .admin_page{
+/* Admin Page Layout */
+.admin_page {
   width: 100%;
   display: flex;
   flex-direction: column;
-  .admin_page_container{
+  min-height: 100vh;
+  background-color: var(--bg-body, #f8f9fa);
+  font-family: 'Inter', sans-serif;
+
+  .admin_page_container {
     width: 100%;
     display: flex;
     flex-direction: row;
-    .other_pages{
-      flex: 4;
+    flex: 1;
+
+    .other_pages {
+      flex: 1;
+      padding: 2rem;
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
     }
   }
 }
+
+/* Global Widget / Card Styles for Admin Panel */
+.widgetLg,
+.widgetSm,
+.chart {
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Reusing your existing legacy classes if needed, but modernizing them */
+/* .admin_menu_bar, .meta_info_box etc. are mainly from old sidebars, kept safe if referenced elsewhere */

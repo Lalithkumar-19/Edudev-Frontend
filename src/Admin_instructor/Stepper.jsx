@@ -59,38 +59,59 @@ export default function Stepper() {
     }, []);
 
     return (
-        <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+        <Box sx={{ width: '100%', flexGrow: 1 }}>
             <Paper
                 square
                 elevation={0}
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    height: 30,
-                    width: 900,
+                    justifyContent: 'center',
+                    height: 50,
                     pl: 2,
-                    bgcolor: 'background.default',
+                    bgcolor: 'white',
+                    mb: 2,
+                    borderBottom: '1px solid #f1f5f9'
                 }}
             >
-                <Typography>{steps[activeStep].label}</Typography>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#2d3748' }}>{steps[activeStep].label}</Typography>
             </Paper>
-            <Box sx={{ height: "auto", maxWidth: 900, width: '900px', p: 2 }}>
+            <Box sx={{ width: '100%', p: 2 }}>
 
-                <p style={{ color: "coral", textAlign: "start", margin: "0", fontSize: "17px" }}>   {steps[activeStep].description}</p>
-                {steps[activeStep].page}
+                <p style={{ color: "#fe7f50", textAlign: "center", margin: "0 0 20px 0", fontSize: "16px", fontWeight: "500" }}>
+                    {steps[activeStep].description}
+                </p>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                    {steps[activeStep].page}
+                </div>
 
             </Box>
             <MobileStepper
-                variant="text"
+                variant="dots"
                 steps={maxSteps}
                 position="static"
                 activeStep={activeStep}
-                sx={{ width: "900px" }}
+                sx={{
+                    width: "100%",
+                    bgcolor: "transparent",
+                    padding: "1rem 0",
+                    '& .MuiMobileStepper-dotActive': { backgroundColor: '#fe7f50' }
+                }}
                 nextButton={
                     <Button
-                        size="small"
+                        size="medium"
                         onClick={handleNext}
-                        disabled={activeStep === maxSteps - 1 }
+                        disabled={activeStep === maxSteps - 1}
+                        sx={{
+                            backgroundColor: '#fe7f50',
+                            color: 'white',
+                            '&:hover': { backgroundColor: '#ff6b3d' },
+                            '&:disabled': { backgroundColor: '#cbd5e1', color: 'white' },
+                            fontWeight: 'bold',
+                            padding: '8px 24px',
+                            borderRadius: '8px',
+                            textTransform: 'none'
+                        }}
                     >
                         Next
                         {theme.direction === 'rtl' ? (
@@ -101,7 +122,16 @@ export default function Stepper() {
                     </Button>
                 }
                 backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                    <Button
+                        size="medium"
+                        onClick={handleBack}
+                        disabled={activeStep === 0}
+                        sx={{
+                            color: '#718096',
+                            fontWeight: 'bold',
+                            textTransform: 'none'
+                        }}
+                    >
                         {theme.direction === 'rtl' ? (
                             <KeyboardArrowRight />
                         ) : (

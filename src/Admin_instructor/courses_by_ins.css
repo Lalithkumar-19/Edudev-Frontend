@@ -1,16 +1,33 @@
-.courses_by_ins{
+/* Premium Course List CSS */
+.courses_by_ins {
     display: flex;
     flex-direction: column;
-    .courses_by_ins_title{
-        font-size: 20px;
-        color:chocolate;
+    padding: 2rem;
+    width: 100%;
+
+    .courses_by_ins_title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--secondary, #2d3748);
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
     }
-    .course-card{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 10px;
-        
+
+    .course-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        justify-items: center;
+
+        /* Message if no courses */
+        &>div:first-child:where(:not(.course_card_container)) {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #718096;
+            margin-top: 2rem;
+        }
     }
 }

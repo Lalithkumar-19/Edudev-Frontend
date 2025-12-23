@@ -1,115 +1,121 @@
+/* Featured Courses Container */
 .featured_courses {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
+    padding: 4rem 1rem;
+    background: var(--bg-body);
+}
+
+/* Headings */
+.featured_courses .category_heading {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
 }
 
 .featured_courses .category_heading::after {
     content: "";
     display: block;
-    width: 100%;
-    background-color: tomato;
-    height: 2px;
-    bottom: 0px;
-    left: 0px;
-    margin-top: 2px;
-
+    width: 60px;
+    background: var(--primary);
+    height: 4px;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 .featured_courses .category_title_box {
-
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 100%;
+    max-width: 600px;
     align-items: center;
     justify-content: center;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.featured_courses .category_title_box .categoty_title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .featured_courses .category_title_box .category_sub_quote {
-    width: 100%;
-    text-align: center;
-    opacity: 0.8;
-    line-height: 20px;
-    word-spacing: 1px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1.1rem;
 }
 
-
-
+/* Category Chips/Pills */
 .categotyitem_box {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 10px;
+    gap: 1rem;
     width: 100%;
-    align-items: center;
     justify-content: center;
-    margin-top: 50px;
-
+    margin-bottom: 3rem;
 }
 
 .categotyitem_box .categoty_item {
     display: flex;
-    flex-direction: row;
-    width: 200px;
     align-items: center;
     justify-content: center;
-    height: 80px;
-    border: 1px solid #fdbb2d;
-    margin: 20px;
-
+    /* Centering content */
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    /* Pillow shape for modern look */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    /* Let it wrap content */
+    min-width: 160px;
+    height: auto;
+    font-weight: 500;
 }
 
 .categotyitem_box .categoty_item:hover {
-    background-color: tomato;
+    background: var(--primary);
     color: white;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .categotyitem_box .categoty_item img {
-    width: 30px;
-    height: 30px;
-    background-color: pink;
-    border-radius: 5px;
-    border: 2px solid pink;
+    width: 24px;
+    height: 24px;
     margin-right: 10px;
 }
 
 .categotyitem_box .categoty_item .categoryitem_course_details {
     display: flex;
     flex-direction: column;
-    row-gap: 1px;
+    text-align: left;
 }
 
-
+/* Courses Grid */
 .featured_courses .courses_box {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     width: 100%;
-    gap: 19px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
+    max-width: 1200px;
+    padding: 1rem;
 }
 
+@media (max-width: 600px) {
+    .featured_courses .category_title_box .categoty_title {
+        font-size: 1.8rem;
+    }
 
-@media(width<=600px) {
     .featured_courses .courses_box {
-        gap: 10px;
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 0px;
+        grid-template-columns: 1fr;
     }
-
-
-    .featured_courses .category_title_box .category_sub_quote {
-        width: 70%;
-    }
-
 }

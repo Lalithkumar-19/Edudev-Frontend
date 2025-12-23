@@ -43,73 +43,70 @@ function Cartpage() {
     const cart_total = useSelector((data) => data.cartsum);
     console.log(cartData);
     return (
-        <div className='cart_page'>
+        <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <Navbar />
-            <header className='cart_page_header'>
-                <h1 className='cart_main_title'>Cart Page</h1>
-                <span className='cart_sub_title'>
-                    Home/<span className='cart_sub_sub_title'>Cart Page</span>
-                </span>
+            <div className='cart_page' style={{ padding: "2rem" }}>
+                <header className='cart_page_header'>
+                    <h1 className='cart_main_title'>Cart Page</h1>
+                    <span className='cart_sub_title'>
+                        Home/<span className='cart_sub_sub_title'>Cart Page</span>
+                    </span>
 
-            </header>
-            {Array.isArray(cartData) && cartData.length !== 0 ? (
-                <>
-                    {Array.isArray(cartData) && cartData.length > 0 && cartData.map((item, i) => {
-                        return item && <Cart_Page_item id={item._id} item_name={item.product_details?.title} item_owner={"trusted partner"} item_pic={item.product_details?.book_pics[0]} item_price={item.product_details?.book_price} key={item._id} />
-                    })}
+                </header>
+                {Array.isArray(cartData) && cartData.length !== 0 ? (
+                    <>
+                        {Array.isArray(cartData) && cartData.length > 0 && cartData.map((item, i) => {
+                            return item && <Cart_Page_item id={item._id} item_name={item.product_details?.title} item_owner={"trusted partner"} item_pic={item.product_details?.book_pics[0]} item_price={item.product_details?.book_price} key={item._id} />
+                        })}
 
 
-                    <section className='cart_page_main'>
-                    </section>
-                    <footer className='cart_page_footer'>
-                        <section className='coupon_apply_div'>
-                            <input className='coupon_input' type='text' placeholder=' Enter Coupon Code' />
-                            <button className='apply_coupon_button' id='button'>Apply Coupon</button>
-
+                        <section className='cart_page_main'>
                         </section>
-                        <section className='cart_totals'>
-                            <h1 className='cart_totals_head_title'>Cart Totals</h1>
-                            <div className='subtotal'>
-                                <span className='header_title'>
-                                    Subtotal
-                                </span>
-                                <span className='total_price'>
-                                    $ {cart_total}
-                                </span>
-                            </div>
+                        <footer className='cart_page_footer'>
+                            <section className='cart_totals'>
+                                <h1 className='cart_totals_head_title'>Cart Totals</h1>
+                                <div className='subtotal'>
+                                    <span className='header_title'>
+                                        Subtotal
+                                    </span>
+                                    <span className='total_price'>
+                                        ₹ {cart_total}
+                                    </span>
+                                </div>
 
 
-                            <div className='shipping'>
-                                <span className='header_title'>
-                                    Shipping
-                                </span>
-                                <span className='shipping_info'>
-                                    Free
-                                </span>
-                            </div>
+                                <div className='shipping'>
+                                    <span className='header_title'>
+                                        Shipping
+                                    </span>
+                                    <span className='shipping_info'>
+                                        Free
+                                    </span>
+                                </div>
 
 
-                            <div className='grandtotal'>
-                                <span className='header_title'>
-                                    Total
-                                </span>
-                                <span className='total_price'>
-                                    $ {cart_total}
-                                </span>
-                            </div>
-                            <button className='proceed_button' id='button' onClick={() => navigate("/yourcart/checkout")}>
-                                Proceed to Checkout
-                            </button>
+                                <div className='grandtotal'>
+                                    <span className='header_title'>
+                                        Total
+                                    </span>
+                                    <span className='total_price'>
+                                        ₹ {cart_total}
+                                    </span>
+                                </div>
+                                <button className='proceed_button' id='button' onClick={() => navigate("/yourcart/checkout")}>
+                                    Proceed to Checkout
+                                </button>
 
-                        </section>
+                            </section>
 
-                    </footer>
-                </>) : (<>
-                    <span style={{ color: "black", margin: "0 auto", fontSize: "29px", fontWeight: "800" }} >No items in your cart :))</span>
-                    <img width="80%" height="400px"style={{margin:"0 auto"}} src='https://fatafatsewa.com/website/images/emptycart.png' alt='cart_empty'/>
-                </>)}
+                        </footer>
+                    </>) : (<>
+                        <span style={{ color: "black", margin: "0 auto", fontSize: "29px", fontWeight: "800" }} >No items in your cart :))</span>
+                        <img width="80%" height="400px" style={{ margin: "0 auto" }} src='https://fatafatsewa.com/website/images/emptycart.png' alt='cart_empty' />
+                    </>)}
+
+            </div>
             <Contactpage />
-
         </div>
     )
 }

@@ -1,17 +1,19 @@
-.instructors{
+.instructors {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    padding: 4rem 1rem;
+    background: var(--bg-body);
 }
-.instructors .our_instructors{
-    margin-top: 30px;
+
+.instructors .our_instructors {
+    margin-top: 2rem;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 80%;
-    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
-
 }

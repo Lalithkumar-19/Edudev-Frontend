@@ -1,36 +1,186 @@
+/* Premium Orders Page CSS */
 .orders_container {
+    padding: 2rem;
     width: 100%;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
 
     .orders_header {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
 
         .header_top {
-            margin-bottom: 2px;
-        }
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary, #2d3748);
+            margin: 0;
 
+            span {
+                color: var(--primary, #fe7f50) !important;
+            }
+        }
     }
 }
-table{
-    margin: 0 auto;
-    min-width: 80%;
-    margin-top: 20px;
+
+.all_orders {
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
-table,th,td{
-    border: 1px solid black;
+
+.table_responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
     border-collapse: collapse;
+    margin: 0;
+    min-width: 1000px;
+    /* Ensure table doesn't cramp on small screens */
+}
+
+th {
+    background-color: #f7fafc;
+    color: #718096;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Specific Columns */
+.product_names {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+
+.amount_cell {
+    font-weight: 600;
+    font-family: 'Inter', monospace;
+    color: #2d3748;
+}
+
+.address_cell {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Status Badges */
+.status_badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.status_badge.pending {
+    background-color: #fffaf0;
+    color: #dd6b20;
+    /* Orange */
+}
+
+.status_badge.confirmed {
+    background-color: #ebf8ff;
+    color: #3182ce;
+    /* Blue */
+}
+
+.status_badge.near_to_you {
+    background-color: #e6fffa;
+    color: #38b2ac;
+    /* Teal */
+}
+
+.status_badge.delivered {
+    background-color: #f0fff4;
+    color: #38a169;
+    /* Green */
+}
+
+/* Payment Badges */
+.payment_badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.payment_badge.paid {
+    background-color: #f0fff4;
+    color: #2f855a;
+    border: 1px solid #c6f6d5;
+}
+
+.payment_badge.unpaid,
+.payment_badge.pending {
+    background-color: #fff5f5;
+    color: #c53030;
+    border: 1px solid #fed7d7;
+}
+
+/* Select Dropdown */
+.status_select {
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
     background-color: white;
-    text-align: start;
-    padding-left: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
 
-}
-tr{
-    height: auto;
+    &:hover,
+    &:focus {
+        border-color: var(--primary, #fe7f50);
+        box-shadow: 0 0 0 3px rgba(254, 127, 80, 0.1);
+    }
 }
 
-td{
-height: auto;
-width: 100px;
+/* Empty State */
+.no_orders_state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 4rem;
+    color: #a0aec0;
+
+    h3 {
+        font-size: 1.5rem;
+        color: #4a5568;
+        margin-bottom: 0.5rem;
+    }
 }

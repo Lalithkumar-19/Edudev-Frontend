@@ -14,9 +14,9 @@ function New_book() {
     const [final_price, setFinal_price] = useState("");
     const [stock, setStock] = useState("");
     const [images, setImages] = useState([]);
-    const[Author,setAuthor]=useState("");
-  
-    const[loading,setLoading]=useState(false);
+    const [Author, setAuthor] = useState("");
+
+    const [loading, setLoading] = useState(false);
 
 
     const handleTags = (tags) => {
@@ -30,7 +30,7 @@ function New_book() {
         if (
             tags.length === 0 ||
             !BookName ||
-            !Author||
+            !Author ||
             !Booksubtitle ||
             !BookDesc ||
             !BookAdditional_info ||
@@ -43,7 +43,7 @@ function New_book() {
 
         }
         else {
-   setLoading(true);
+            setLoading(true);
             let data = new FormData();
             for (let i = 0; i < images.length; i++) {
                 data.append('book_pics', images[i]);
@@ -56,7 +56,7 @@ function New_book() {
             data.append("book_sub_title", Booksubtitle);
             data.append("In_stock", stock);
             data.append("tags", tags);
-            data.append("Author",Author);
+            data.append("Author", Author);
 
 
             await fetch(`https://edudev-server-1.onrender.com/addnew_book?token=${localStorage.getItem("instructor-token")}`, {
@@ -93,49 +93,64 @@ function New_book() {
     }
     return (
         <div className='new_book'>
-            {/* <EditBook_modal /> */}
             <h2>Add New Book</h2>
             <Toaster />
             <form>
-                <label>Book Name:</label>
-                <input type='text' maxLength={60} width={"100%"} placeholder='Auto biography of a yogi' value={BookName} onChange={(e) => setBookname(e.target.value)} required />
-                <label>Author Name:</label>
-                <input type='text' maxLength={20} width={"100%"} placeholder='yogananda' value={Author} onChange={(e) => setAuthor(e.target.value)} required />
-                <label>Book SubTitle:</label>
-                <input type='text' maxLength={60} width={"100%"} placeholder='the yogic life story..' value={Booksubtitle} onChange={(e) => setBooksubtitle(e.target.value)} required />
+                {/* Book Details Section */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
+                    <div>
+                        <label>Book Name:</label>
+                        <input type='text' maxLength={60} placeholder='E.g. Autobiography of a Yogi' value={BookName} onChange={(e) => setBookname(e.target.value)} required />
+                    </div>
+                    <div>
+                        <label>Author Name:</label>
+                        <input type='text' maxLength={20} placeholder='E.g. Paramahansa Yogananda' value={Author} onChange={(e) => setAuthor(e.target.value)} required />
+                    </div>
+                </div>
+
+                <label>Book Subtitle:</label>
+                <input type='text' maxLength={60} placeholder='E.g. The life story...' value={Booksubtitle} onChange={(e) => setBooksubtitle(e.target.value)} required />
+
                 <label>Book Description</label>
-                <textarea required placeholder='The life story of paramahamsa yogananda ...' value={BookDesc} onChange={(e) => setBookdesc(e.target.value)}></textarea>
+                <textarea required placeholder='Detailed description of the book...' value={BookDesc} onChange={(e) => setBookdesc(e.target.value)}></textarea>
+
                 <label>Additional Information:</label>
-                <textarea required placeholder='It reflects to every human being ,it says the real meaning of life .....' value={BookAdditional_info} onChange={(e) => setBookAdditional_info(e.target.value)}></textarea>
-                <label>Actual price:</label>
-                <input type='number' width={"100%"} placeholder='eg.$120' value={actual_price} onChange={(e) => setactual_price(e.target.value)} min={20} required />
-                <label>final price:</label>
-                <input type='number' width={"100%"} placeholder='eg.$110' value={final_price} onChange={(e) => setFinal_price(e.target.value)} min={20} required />
-                <label>Number of Items in Stock</label>
-                <input type='number' placeholder='eg. 120' value={stock} onChange={(e) => setStock(e.target.value)} min={0} required />
+                <textarea required placeholder='Any other relevant details...' value={BookAdditional_info} onChange={(e) => setBookAdditional_info(e.target.value)}></textarea>
+
+                {/* Pricing & Stock Section */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+                    <div>
+                        <label>Actual Price (₹):</label>
+                        <input type='number' placeholder='120' value={actual_price} onChange={(e) => setactual_price(e.target.value)} min={20} required />
+                    </div>
+                    <div>
+                        <label>Discounted Price (₹):</label>
+                        <input type='number' placeholder='110' value={final_price} onChange={(e) => setFinal_price(e.target.value)} min={20} required />
+                    </div>
+                    <div>
+                        <label>Stock Quantity:</label>
+                        <input type='number' placeholder='120' value={stock} onChange={(e) => setStock(e.target.value)} min={0} required />
+                    </div>
+                </div>
+
                 <label>Add Tags for Book</label>
                 <TagsInput value={tags} onChange={handleTags} />
-                <label>Images of Book </label>
+
+                <label>Book Images</label>
                 <input type='file' multiple accept='image/*' onChange={(e) => setImages([...e.target.files])} />
-                {
-                    <div className='selected_img_preview'>
-                        {images ? (
-                            <>
-                                {images.map((item, index) => {
-                                    let url = URL.createObjectURL(item);
 
-                                    return <img key={index} src={url} alt='book_images' width={200} height={200} />
-                                })}
-                            </>
-                        ) : ""}
-                    </div>
-                }
+                <div className='selected_img_preview'>
+                    {images && images.map((item, index) => {
+                        let url = URL.createObjectURL(item);
+                        return <img key={index} src={url} alt='book_preview' />
+                    })}
+                </div>
 
-
-                <button className='create-a-book' type='button' id='button' onClick={handle_create} disabled={loading}>{!loading?"Create Product":<CircularProgress color='primary'/>}</button>
+                <button className='create-a-book' type='button' id='button' onClick={handle_create} disabled={loading}>
+                    {loading ? <CircularProgress size={24} color='inherit' /> : "Create Product"}
+                </button>
 
             </form>
-
         </div>
     )
 }

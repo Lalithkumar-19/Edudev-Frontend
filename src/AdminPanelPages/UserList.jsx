@@ -59,7 +59,7 @@ export default function UserList({ setselected }) {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={"https://edudev-server-1.onrender.com/"+params.row.dp} alt="" />
+            <img className="userListImg" src={"https://edudev-server-1.onrender.com/" + params.row.dp} alt="" />
             {params.row.name}
           </div>
         );
@@ -90,17 +90,27 @@ export default function UserList({ setselected }) {
   return (
     <div className="userList">
       <Toaster gutter={3} />
+      <div className="userListHeader">
+        <h2 className="userListTitle">User Management</h2>
+      </div>
 
-      {
-        data.length > 0 ? (<>
+      <div className="userListContainer">
+        {data.length > 0 ? (
           <DataGrid
             rows={data}
             disableSelectionOnClick
             columns={columns}
-            pageSize={8}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
+            checkboxSelection
+            className="userListDataGrid"
           />
-        </>) : (<div style={{ textAlign: "center" }}><CircularProgress color="primary" content="Fetching data" /></div>)
-      }
+        ) : (
+          <div className="loadingContainer">
+            <CircularProgress size={40} className="loadingSpinner" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

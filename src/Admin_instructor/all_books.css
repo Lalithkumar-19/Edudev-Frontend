@@ -1,25 +1,43 @@
-.all_books{
+/* All Books Page CSS */
+.all_books {
     display: flex;
-    width: 100%;
     flex-direction: column;
-    .main_books_admin_section{
+    width: 100%;
+    padding: 2rem;
+
+    .main_books_admin_section {
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 12px;
-        .books_page_title{
-            color:green;
-            text-align: center;
-        }
-        .books_div{
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-            justify-content: center;
+        gap: 2rem;
 
+        .books_page_title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary, #2d3748);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            text-align: left;
+            /* Align left for cleaner look */
+        }
+
+        .books_div {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            justify-items: center;
+            /* Center items in their grid cells */
+
+            /* If no books found */
+            &>h2 {
+                color: #a0aec0;
+                font-weight: 500;
+                grid-column: 1 / -1;
+                text-align: center;
+                margin-top: 3rem;
+            }
         }
     }
 }

@@ -8,54 +8,53 @@ import { useSelector } from 'react-redux';
 function MyLearningsPage() {
 
     const courses = useSelector(state => state.My_learnings);
-  
+
     return (
-        <div className='featured_courses' >
+        <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <Navbar />
-            <h3 className='category_heading'>Your Learnings</h3>
-            <div className='category_title_box'>
-                <span className='category_sub_quote'>
-                    Buyed courses
-                </span>
-            </div>
-            <div className='courses_box'>
+            <div className='featured_courses' style={{ paddingTop: "2rem" }} >
+                <h3 className='category_heading'>Your Learnings</h3>
+                <div className='category_title_box'>
+                    <span className='category_sub_quote'>
+                        Buyed courses
+                    </span>
+                </div>
 
+                <div className='courses_box'>
+
+                    {Array.isArray(courses) && courses.length > 0 &&
+                        courses.map((item, index) => (
+                            <Coursecard
+                                course_thumnail={item.course_thumbnail}
+                                course_duration={item.course_duration}
+                                course_name={item.course_name}
+                                course_price={item.course_price}
+                                skill_level={item.skill_level}
+                                course_lectures={item.course_lectures}
+                                id={item._id}
+                                wished_list={true}
+                                key={index}
+                                creator={item.creator}
+                                buyed={Array.isArray(courses) && courses.some((it) => it._id === item._id)}
+
+
+                            />
+
+                        ))
+
+
+                    }
+
+
+
+
+                </div>
                 {
-                    Array.isArray(courses) && courses.map((item, index) => {
-                        return (
-                            <>
-                                {
-                                    item && <Coursecard course_thumnail={item.course_thumbnail}
-                                        course_duration={item.course_duration}
-                                        course_name={item.course_name}
-                                        course_price={item.course_price}
-                                        id={item._id}
-                                        skill_level={item.skill_level}
-                                        course_lectures={item.course_lectures}
-                                        wished_list={true}
-                                        key={index}
-                                        creator={item.creator}
-                                        buyed={Array.isArray(courses)&&courses.some((it)=>it._id===item._id)}
-
-
-                                    />
-                                }
-
-                            </>
-                        )
-                    })
-
-
-                }
-                {
-                    Array.isArray(courses) && courses.length === 0 && <h1>No courses you have brought</h1>
+                    Array.isArray(courses) && courses.length === 0 && <h1 style={{ marginTop: "2rem", color: "var(--secondary)" }}>No courses you have brought</h1>
                 }
 
-
-
+                {/* <Contactpage />  */}
             </div>
-
-            {/* <Contactpage />  */}
         </div>
     )
 }
