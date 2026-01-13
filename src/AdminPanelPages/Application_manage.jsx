@@ -24,7 +24,7 @@ export default function Application_manage() {
     const [data, setData] = useState([]);
 
     const handleDelete = async (id) => {
-        await fetch(`https://edudev-server-1.onrender.com/delete_single_instructor_application?id=${id}&?token=${localStorage.getItem("admin_token")}`).then(res => {
+        await fetch(`https://edudev-server-blush.vercel.app/delete_single_instructor_application?id=${id}&?token=${localStorage.getItem("admin_token")}`).then(res => {
             if (res.status === 200) {
                 toast.success("Succesfuuly denied Application");
                 rows.forEach(item => {
@@ -42,7 +42,7 @@ export default function Application_manage() {
 
     }
     const handleGranted = async (id) => {
-        await fetch(`https://edudev-server-1.onrender.com/grant_single_instructor_application?id=${id}&token=${localStorage.getItem("admin_token")}`).then(res => {
+        await fetch(`https://edudev-server-blush.vercel.app/grant_single_instructor_application?id=${id}&token=${localStorage.getItem("admin_token")}`).then(res => {
             if (res.status === 200) {
                 toast.success("Succesfuuly Granted Application");
             }
@@ -114,7 +114,7 @@ export default function Application_manage() {
 
     useEffect(() => {
         const fetchdata = async () => {
-            await fetch('https://edudev-server-1.onrender.com/get_instructor_applications', {
+            await fetch('https://edudev-server-blush.vercel.app/get_instructor_applications', {
                 method: "GET",
             }).then(res => {
                 res.json().then(d => {

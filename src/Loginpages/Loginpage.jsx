@@ -37,8 +37,8 @@ function Loginpage() {
 
     const handleLogin = async () => {
         if (admin_login === false) {
-            const login_user_url = `https://edudev-server-1.onrender.com/${signUp ? "signup" : "login"}`;
-            const instructor_login_url = 'https://edudev-server-1.onrender.com/login-instructor';
+            const login_user_url = `https://edudev-server-blush.vercel.app/${signUp ? "signup" : "login"}`;
+            const instructor_login_url = 'https://edudev-server-blush.vercel.app/login-instructor';
             await axios.post(instructor_login ? instructor_login_url : login_user_url, { name, email, password }).then((res) => {
                 if (res.status === 200 || res.status === 201) {
                     setLoggedIn(true);
@@ -79,7 +79,7 @@ function Loginpage() {
             });
         } else {
             try {
-                const res = await axios.post("https://edudev-server-1.onrender.com/admin_login", { email: email, password: password });
+                const res = await axios.post("https://edudev-server-blush.vercel.app/admin_login", { email: email, password: password });
                 if (res.status === 200) {
                     setadmin_login(false);
                     localStorage.setItem("admin_token", res.data.token);

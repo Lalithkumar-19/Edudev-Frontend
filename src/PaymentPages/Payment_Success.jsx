@@ -11,7 +11,7 @@ function Payment_Success() {
     useEffect(() => {
         try {
             const fetch_payment_Details = async () => {
-                const res = await axios.post(`https://edudev-server-1.onrender.com/get_payment_details/${localStorage.getItem("stripe_Session")}`);
+                const res = await axios.post(`https://edudev-server-blush.vercel.app/get_payment_details/${localStorage.getItem("stripe_Session")}`);
                 if (res.status === 200) {
                     console.log(res.data);
                 } else {
@@ -42,7 +42,7 @@ function Payment_Success() {
                     <h1 style={{ marginLeft: "0px", color: "coral", marginBottom: "6px" }}>Payment Successfull</h1>
                     <p style={{ textAlign: "center" }}>Your Order placed successfully</p>
                     <div className='buttons_for_navigation'>
-                        
+
                         <button className='back_to_home' id='button' onClick={() => navigate("/")}>
                             Back Home
                         </button>

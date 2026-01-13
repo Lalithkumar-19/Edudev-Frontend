@@ -39,7 +39,7 @@ const Profile = () => {
 
     const fetchUserData = async () => {
         try {
-            const response = await axios.get("https://edudev-server-1.onrender.com/fetch_instructor_profile?token=" + localStorage.getItem("instructor-token"));
+            const response = await axios.get("https://edudev-server-blush.vercel.app/fetch_instructor_profile?token=" + localStorage.getItem("instructor-token"));
             setFormData(response.data);
         } catch (error) {
             console.error("Error fetching user data", error);
@@ -54,7 +54,7 @@ const Profile = () => {
 
     const handleUpdateUser = async () => {
         try {
-            const response = await axios.put(`https://edudev-server-1.onrender.com/Update_instructor_profile?token=${localStorage.getItem("instructor-token")}`, JSON.stringify(formData), {
+            const response = await axios.put(`https://edudev-server-blush.vercel.app/Update_instructor_profile?token=${localStorage.getItem("instructor-token")}`, JSON.stringify(formData), {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -78,7 +78,7 @@ const Profile = () => {
         try {
             const formdata = new FormData();
             formdata.append("dp", dp);
-            const response = await axios.put(`https://edudev-server-1.onrender.com/Update_instructor_profile_pic?token=${localStorage.getItem("instructor-token")}`, formdata);
+            const response = await axios.put(`https://edudev-server-blush.vercel.app/Update_instructor_profile_pic?token=${localStorage.getItem("instructor-token")}`, formdata);
             if (response.status == 200) {
                 toast.success("Updated profile pic successfully ");
                 setDp("");

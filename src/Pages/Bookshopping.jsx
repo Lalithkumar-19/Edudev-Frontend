@@ -20,7 +20,7 @@ function Bookshopping() {
     useEffect(() => {
         async function Fetch_Books() {
             try {
-                const res = await axios.get("https://edudev-server-1.onrender.com/Get_all_books");
+                const res = await axios.get("https://edudev-server-blush.vercel.app/Get_all_books");
                 if (res.status === 200) {
                     setBooks(res.data);
                 }

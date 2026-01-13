@@ -18,7 +18,7 @@ function All_Instructors() {
     const Fetch_ins = async () => {
         try {
             // Fetch ALL instructors to handle client-side filtering and pagination
-            const res = await axios.get("https://edudev-server-1.onrender.com/fetch_all_ins");
+            const res = await axios.get("https://edudev-server-blush.vercel.app/fetch_all_ins");
             if (res.status === 200) {
                 setInstructors(res.data);
             }

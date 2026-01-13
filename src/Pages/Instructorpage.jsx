@@ -7,7 +7,7 @@ function Instructorpage() {
     const [instructors, setInstructors] = useState([]);
     const Fetch_ins = async () => {
         try {
-            const res = await axios.get("https://edudev-server-1.onrender.com/fetch_all_ins?limit=6");
+            const res = await axios.get("https://edudev-server-blush.vercel.app/fetch_all_ins?limit=6");
             if (res.status === 200) {
                 setInstructors(res.data);
             }
@@ -28,7 +28,7 @@ function Instructorpage() {
                 <div className='category_title_box'>
                     <h1 className='categoty_title'>Meet Our& <span style={{ color: "tomato" }}>Instructors</span></h1>
                     <span className='category_sub_quote'>
-                    Get to know the passionate experts behind our courses. Our instructors bring years of experience and expertise to guide you through your learning journey with personalized insights and support
+                        Get to know the passionate experts behind our courses. Our instructors bring years of experience and expertise to guide you through your learning journey with personalized insights and support
                     </span>
                 </div>
             </div>

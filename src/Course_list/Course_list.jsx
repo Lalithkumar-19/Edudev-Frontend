@@ -84,7 +84,7 @@ function Course_list() {
 
     async function getfilteredResult() {
         try {
-            const url = `https://edudev-server-1.onrender.com/api/course_list?search=${search}&category=${selectedCategory}&instructor=${selectedInstructor}&price=${priceRange}`
+            const url = `https://edudev-server-blush.vercel.app/api/course_list?search=${search}&category=${selectedCategory}&instructor=${selectedInstructor}&price=${priceRange}`
             const { data, status } = await axios.get(url);
             const { leng, total, courses } = data;
             setShowing_courses_no(leng);
@@ -114,14 +114,14 @@ function Course_list() {
     }, [selectedCategory, selectedInstructor, priceRange]);
 
     async function Fetch_categories() {
-        const res = await axios.get("https://edudev-server-1.onrender.com/Get_all_categories");
+        const res = await axios.get("https://edudev-server-blush.vercel.app/Get_all_categories");
         if (res.status === 200) {
             setCategories_data(res.data);
         }
     }
 
     async function Fetch_Instructors() {
-        const res = await axios.get("https://edudev-server-1.onrender.com/Get_all_top_instructor");
+        const res = await axios.get("https://edudev-server-blush.vercel.app/Get_all_top_instructor");
         if (res.status === 200) {
             setInstructorsData(res.data);
         }

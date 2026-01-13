@@ -48,7 +48,7 @@ function Secondstep() {
             let loading = toast.loading("uploading the content");
             setUploadingStatus(true);
 
-            await fetch(`https://edudev-server-1.onrender.com/coursecontent?id=${localStorage.getItem("course_id")}&token=${localStorage.getItem("instructor-token")}`, {
+            await fetch(`https://edudev-server-blush.vercel.app/coursecontent?id=${localStorage.getItem("course_id")}&token=${localStorage.getItem("instructor-token")}`, {
                 method: 'POST',
                 body: formData
             }).then(() => {

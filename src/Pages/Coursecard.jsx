@@ -50,7 +50,7 @@ function Coursecard({ animation, b, admin, id, course_thumnail, course_name, cou
 
     const handle_delete_course = async () => {
         try {
-            const res = await axios.put("https://edudev-server-1.onrender.com/delete_course?token=" + localStorage.getItem("instructor-token") + "&id=" + id);
+            const res = await axios.put("https://edudev-server-blush.vercel.app/delete_course?token=" + localStorage.getItem("instructor-token") + "&id=" + id);
             if (res.status === 200) {
                 toast.success("Deleted successfully");
                 window.location.reload();

@@ -7,7 +7,7 @@ export default function WidgetLg() {
   const [Orders, setOrders] = useState([]);
   const Fetch_all_orders = async () => {
     try {
-      const res = await axios.get(`https://edudev-server-1.onrender.com/Get_all_orders_Admin?token=&{localStorage.getItem("admin_token")}`);
+      const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_all_orders_Admin?token=&{localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         setOrders(res.data);
         console.log("admin", res.data);
@@ -44,7 +44,7 @@ export default function WidgetLg() {
               <td className="widgetLgUser">
                 <div className="widgetLgUserContainer">
                   <img
-                    src={"https://edudev-server-1.onrender.com/" + item.userId.dp}
+                    src={"https://edudev-server-blush.vercel.app/" + item.userId.dp}
                     alt="user image"
                     className="widgetLgImg"
                   />

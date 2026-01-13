@@ -19,7 +19,7 @@ export default function NewUser() {
   const handle_Create_User = async () => {
     try {
       if (data.Addresses !== "" && data.email !== "" && data.name !== "" && data.password !== "" && data.profession !== "") {
-        const response = await axios.post(`https://edudev-server-1.onrender.com/create_new_user?token=${localStorage.getItem("admin_token")}`, data);
+        const response = await axios.post(`https://edudev-server-blush.vercel.app/create_new_user?token=${localStorage.getItem("admin_token")}`, data);
         if (response.status == 201) {
           toast.success("created a user");
           setData({

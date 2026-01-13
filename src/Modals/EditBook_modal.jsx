@@ -35,7 +35,7 @@ export default function EditBook_modal({ id, }) {
         else {
 
             try {
-                const res = await axios.post(`https://edudev-server-1.onrender.com/update_book?token=${localStorage.getItem("instructor-token")}&id=${id}`, updatedBookData);
+                const res = await axios.post(`https://edudev-server-blush.vercel.app/update_book?token=${localStorage.getItem("instructor-token")}&id=${id}`, updatedBookData);
                 if (res.status === 200) {
                     toast.success("Updated successfully");
                     setOpen(false);
@@ -53,7 +53,7 @@ export default function EditBook_modal({ id, }) {
     }
     useEffect(() => {
         async function Get_book_details() {
-            const res = await axios.get(`https://edudev-server-1.onrender.com/Get_single_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
+            const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_single_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
             if (res.status === 200) {
                 setBookData({ ...res.data });
             }
@@ -64,7 +64,7 @@ export default function EditBook_modal({ id, }) {
 
     const handle_Delete_book = async () => {
         try {
-            const res = await axios.put(`https://edudev-server-1.onrender.com/delete_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
+            const res = await axios.put(`https://edudev-server-blush.vercel.app/delete_book?id=${id}&token=${localStorage.getItem("instructor-token")}`);
             if (res.status === 200) {
                 toast.success("deleted successfully");
                 window.location.reload();

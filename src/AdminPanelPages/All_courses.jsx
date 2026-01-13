@@ -8,7 +8,7 @@ function All_courses() {
   const [all_courses, setAll_courses] = useState([]);
   async function fetch_courses() {
     try {
-      const response = await axios.get(`https://edudev-server-1.onrender.com/get_all_courses?token=${localStorage.getItem("instructor-token")}`);
+      const response = await axios.get(`https://edudev-server-blush.vercel.app/get_all_courses?token=${localStorage.getItem("instructor-token")}`);
       if (response.status === 200) {
         setAll_courses([...response.data]);
       }
@@ -31,11 +31,11 @@ function All_courses() {
       <section className="course-card">
 
         {
-          all_courses.length > 0 ?all_courses.map((course, index) => {
-            return <Coursecard admin={true} key={index}  course_name={course.course_name} course_duration={course.course_duration} course_lectures={course.course_lectures} course_price={course.course_price} course_thumnail={course.course_thumbnail.split(":")[0]==="https"?course.course_thumbnail:course.course_thumbnail} skill_level={course.skill_level} id={course._id}/>
+          all_courses.length > 0 ? all_courses.map((course, index) => {
+            return <Coursecard admin={true} key={index} course_name={course.course_name} course_duration={course.course_duration} course_lectures={course.course_lectures} course_price={course.course_price} course_thumnail={course.course_thumbnail.split(":")[0] === "https" ? course.course_thumbnail : course.course_thumbnail} skill_level={course.skill_level} id={course._id} />
 
-          }):"No courses are there,or not fetched "
-      }
+          }) : "No courses are there,or not fetched "
+        }
       </section>
 
 

@@ -3,12 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Bookcard from "../Multiuse_Pages/Bookcard";
 
-export default function ProductList({selected}) {
-  const [books, setBooks] = useState([]);
+export default function ProductList({ selected }) {
+    const [books, setBooks] = useState([]);
 
     useEffect(() => {
         async function fetch_books() {
-            const res = await axios.get(`https://edudev-server-1.onrender.com/Get_all_books?token=${localStorage.getItem("instructor-token")}`);
+            const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_all_books?token=${localStorage.getItem("instructor-token")}`);
             if (res.status === 200) {
                 setBooks(res.data);
             }
@@ -23,9 +23,9 @@ export default function ProductList({selected}) {
                 <div className='books_div'>
                     {
                         books.length > 0 ? books.map((item, i) => {
-                            return <Bookcard  backdrop={item.book_pics[0]} id={item._id} name={item.title} aboutbook={item.description} acualcost={item.book_price} discountcost={item.book_actual_price} admin={true} key={i} />
+                            return <Bookcard backdrop={item.book_pics[0]} id={item._id} name={item.title} aboutbook={item.description} acualcost={item.book_price} discountcost={item.book_actual_price} admin={true} key={i} />
                         }) : <h2>No Books posted </h2>
-                        
+
                     }
                 </div>
 

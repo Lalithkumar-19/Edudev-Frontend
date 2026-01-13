@@ -4,14 +4,14 @@ import { ThumbUpAltRounded } from '@mui/icons-material';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-function Comment_Temp({ blogid,set_data, data, id, img, name, posted_date, commented_text, likes, liked_people }) {
+function Comment_Temp({ blogid, set_data, data, id, img, name, posted_date, commented_text, likes, liked_people }) {
     async function Loadcomments() {
         try {
-            const res = await axios.get("https://edudev-server-1.onrender.com/load_comments?blogId="+blogid);
+            const res = await axios.get("https://edudev-server-blush.vercel.app/load_comments?blogId=" + blogid);
             if (res.status === 200) {
-               set_data({...data,comments:res.data});
+                set_data({ ...data, comments: res.data });
             }
-            else{
+            else {
                 toast.error("comments loading failed..")
             }
 
@@ -25,9 +25,9 @@ function Comment_Temp({ blogid,set_data, data, id, img, name, posted_date, comme
         try {
 
             if (localStorage.getItem("userdata") !== null && localStorage.getItem("token")) {
-                const res = await axios.patch(`https://edudev-server-1.onrender.com/add_like_to_comment?id=${id}&token=${localStorage.getItem("token")}`);
+                const res = await axios.patch(`https://edudev-server-blush.vercel.app/add_like_to_comment?id=${id}&token=${localStorage.getItem("token")}`);
                 if (res.status === 201) {
-                    Loadcomments(); 
+                    Loadcomments();
                     toast.success("Action done successfully");
 
                 } else {

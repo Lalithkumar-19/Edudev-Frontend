@@ -17,7 +17,7 @@ export default function Instructors_manage() {
 
   const Fetch_All_Users = async () => {
     try {
-      const res = await axios.get(`https://edudev-server-1.onrender.com/Fetch_all_instructors?token=${localStorage.getItem("admin_token")}`);
+      const res = await axios.get(`https://edudev-server-blush.vercel.app/Fetch_all_instructors?token=${localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         const row_data = res.data.map((item, index) => ({
           ...item,
@@ -40,7 +40,7 @@ export default function Instructors_manage() {
 
   const handleDelete = async (id) => {
     try {
-      let res = await axios.put(`https://edudev-server-1.onrender.com/delete_single_instructor?id=${id}&token=${localStorage.getItem("admin_token")}`);
+      let res = await axios.put(`https://edudev-server-blush.vercel.app/delete_single_instructor?id=${id}&token=${localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         toast.success("deleted successfully");
         setData(data.filter((item) => item._id !== id));

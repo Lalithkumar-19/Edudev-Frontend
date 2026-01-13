@@ -19,7 +19,7 @@ export default function User({ view, id, rows, setrows }) {
   useEffect(() => {
     async function Fetch_User() {
       try {
-        const res = await axios.get("https://edudev-server-1.onrender.com/get_single_user?id=" + id+"&token="+localStorage.getItem("admin_token"));
+        const res = await axios.get("https://edudev-server-blush.vercel.app/get_single_user?id=" + id + "&token=" + localStorage.getItem("admin_token"));
         if (res.status === 200) {
           setData({ ...res.data });
         } else {
@@ -36,31 +36,31 @@ export default function User({ view, id, rows, setrows }) {
 
   const handle_update_dp = async () => {
     try {
-        const formdata = new FormData();
-        formdata.append("dp",dp);
-        const response = await axios.put("https://edudev-server-1.onrender.com/update_single_user_dp?token=" + localStorage.getItem("token")+"&id="+id, formdata);
-        if (response.status == 200) {
-            toast.success("Updated profile pic successfully ");
-            setUser(response.data);
-            localStorage.setItem("userdata", response.data.name);
-            setDp("");
-        }
-        else {
-            toast.error("SOmething went wrong while updating profile pic")
-        }
-    } catch (error) {
-        console.log("error", error);
+      const formdata = new FormData();
+      formdata.append("dp", dp);
+      const response = await axios.put("https://edudev-server-blush.vercel.app/update_single_user_dp?token=" + localStorage.getItem("token") + "&id=" + id, formdata);
+      if (response.status == 200) {
+        toast.success("Updated profile pic successfully ");
+        setUser(response.data);
+        localStorage.setItem("userdata", response.data.name);
+        setDp("");
+      }
+      else {
         toast.error("SOmething went wrong while updating profile pic")
+      }
+    } catch (error) {
+      console.log("error", error);
+      toast.error("SOmething went wrong while updating profile pic")
     }
-}
+  }
 
   const update_user = async () => {
     try {
       if (data.name !== "" && data.Addresses !== "" && data.email !== "" && data.profession !== "") {
-        if(dp!==""){
+        if (dp !== "") {
           handle_update_dp();
         }
-        const res = await axios.put(`https://edudev-server-1.onrender.com/update_single_user?id=${id}&token=${localStorage.getItem("admin_token")}`, data);
+        const res = await axios.put(`https://edudev-server-blush.vercel.app/update_single_user?id=${id}&token=${localStorage.getItem("admin_token")}`, data);
         if (res.status === 200) {
           toast.success("updated successfully");
           let updated_data = Array.isArray(rows) && rows.map((item, i) => {
@@ -107,7 +107,7 @@ export default function User({ view, id, rows, setrows }) {
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src={dp ?URL.createObjectURL(dp): "https://edudev-server-1.onrender.com/"+data.dp}
+              src={dp ? URL.createObjectURL(dp) : "https://edudev-server-blush.vercel.app/" + data.dp}
               alt="pic"
               className="userShowImg"
             />
@@ -178,7 +178,7 @@ export default function User({ view, id, rows, setrows }) {
                 <img
                   ref={user_dp}
                   className="userUpdateImg"
-                  src={dp ?URL.createObjectURL(dp): "https://edudev-server-1.onrender.com/"+data.dp}
+                  src={dp ? URL.createObjectURL(dp) : "https://edudev-server-blush.vercel.app/" + data.dp}
                   alt="user _dp"
                 />
                 {
@@ -187,7 +187,7 @@ export default function User({ view, id, rows, setrows }) {
                       <label htmlFor="file">
                         <Publish className="userUpdateIcon" />
                       </label>
-                      <input type="file" id="file" style={{ display: "none" }} name="dp" onChange={(e)=>setDp(e.target.files[0])} />
+                      <input type="file" id="file" style={{ display: "none" }} name="dp" onChange={(e) => setDp(e.target.files[0])} />
                     </>
                   )
                 }

@@ -7,7 +7,7 @@ function All_books() {
 
     useEffect(() => {
         async function fetch_books() {
-            const res = await axios.get(`https://edudev-server-1.onrender.com/Get_instrutor_books?token=${localStorage.getItem("instructor-token")}`);
+            const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_instrutor_books?token=${localStorage.getItem("instructor-token")}`);
             if (res.status === 200) {
                 setBooks(res.data);
             }
@@ -22,9 +22,9 @@ function All_books() {
                 <div className='books_div'>
                     {
                         books.length > 0 ? books.map((item, i) => {
-                            return <Bookcard  backdrop={item.book_pics[0]} id={item._id} name={item.title} aboutbook={item.description} acualcost={item.book_price} discountcost={item.book_actual_price} admin={true} key={i} />
+                            return <Bookcard backdrop={item.book_pics[0]} id={item._id} name={item.title} aboutbook={item.description} acualcost={item.book_price} discountcost={item.book_actual_price} admin={true} key={i} />
                         }) : <h2>No Books posted </h2>
-                        
+
                     }
                 </div>
 

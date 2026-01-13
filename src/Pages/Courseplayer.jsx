@@ -42,7 +42,7 @@ function Courseplayer({ }) {
 
     useEffect(() => {
         async function get_course_Details() {
-            await axios.get("https://edudev-server-1.onrender.com/get_single_course?id=" + id,).then(data => {
+            await axios.get("https://edudev-server-blush.vercel.app/get_single_course?id=" + id,).then(data => {
                 setCourse(data.data[0]);
                 console.log(data.data);
             }).catch(err => {
@@ -150,7 +150,7 @@ function Courseplayer({ }) {
                                         <p className='course_main_desc'>{course.course_description}</p>
                                         <div className='selector_buttons' id='vidoe_Player_selection_buttons'>
                                             <button id="buttons_in_course_video" style={{ backgroundColor: Active1 ? "coral" : "transparent" }} onClick={() => { setPage(1) }}>Noticeboad</button>
-                                            <button id="buttons_in_course_video" style={{ backgroundColor: Active2? "coral" : "transparent" }} onClick={() => { setPage(2) }}>Assignments</button>
+                                            <button id="buttons_in_course_video" style={{ backgroundColor: Active2 ? "coral" : "transparent" }} onClick={() => { setPage(2) }}>Assignments</button>
                                         </div>
 
                                         {

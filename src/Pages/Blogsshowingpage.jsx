@@ -22,7 +22,7 @@ function Blogsshowingpage({ headingshow }) {
     useEffect(() => {
         async function Fetch_posts() {
             // Fetch ALL blogs to handle client-side filtering and pagination effectively
-            await axios.get("https://edudev-server-1.onrender.com/blogs").then((result) => {
+            await axios.get("https://edudev-server-blush.vercel.app/blogs").then((result) => {
                 setPosts(result.data);
             }).catch(err => console.log(err));
         };

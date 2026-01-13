@@ -31,7 +31,7 @@ function ThirdStep() {
             const loading = toast.loading("Uploading the data...")
 
             try {
-                await fetch(`https://edudev-server-1.onrender.com/Add-noticeboard?id=${localStorage.getItem("course_id")}`,
+                await fetch(`https://edudev-server-blush.vercel.app/Add-noticeboard?id=${localStorage.getItem("course_id")}`,
                     {
                         method: 'POST',
                         body: formData

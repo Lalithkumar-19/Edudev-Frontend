@@ -16,7 +16,7 @@ function CoursesPage() {
     useEffect(() => {
         async function fetchCourses() {
             try {
-                const res = await axios.get("https://edudev-server-1.onrender.com/get_all_courses");
+                const res = await axios.get("https://edudev-server-blush.vercel.app/get_all_courses");
                 setCourses(res.data);
                 setLoading(false);
             } catch (error) {

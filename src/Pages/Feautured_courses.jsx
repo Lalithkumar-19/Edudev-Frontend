@@ -9,14 +9,14 @@ function Feautured_courses({ heading, desc, titleBoolean, courses_restrict, id }
 
     useEffect(() => {
         async function Load_data() {
-            await axios.get("https://edudev-server-1.onrender.com/get_all_courses").then((data) => {
+            await axios.get("https://edudev-server-blush.vercel.app/get_all_courses").then((data) => {
                 console.log(data.data);
                 setCourses([...data.data]);
             })
         }
         Load_data();
     }, [])
-    
+
     return (
         <div className='featured_courses' >
             <h3 className='category_heading'>{heading}</h3>
@@ -74,7 +74,7 @@ function Feautured_courses({ heading, desc, titleBoolean, courses_restrict, id }
 
             </div>{
                 courses.length === 0 && (
-                    <div style={{margin:"0 auto",marginTop:"40px"}}>
+                    <div style={{ margin: "0 auto", marginTop: "40px" }}>
                         <CircularProgress />
                     </div>
 

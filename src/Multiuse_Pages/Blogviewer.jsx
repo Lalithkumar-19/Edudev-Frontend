@@ -19,7 +19,7 @@ function Blogviewer() {
 
     useEffect(() => {
         async function fetchblog() {
-            await axios.get("https://edudev-server-1.onrender.com/fetchOneblog?id=" + id).then((res) => {
+            await axios.get("https://edudev-server-blush.vercel.app/fetchOneblog?id=" + id).then((res) => {
                 setData(res.data);
             }).catch(err => console.log(err));
         }
@@ -29,7 +29,7 @@ function Blogviewer() {
 
     useEffect(() => {
         async function Fetch_posts() {
-            await axios.get("https://edudev-server-1.onrender.com/blogs?limit=4").then((result) => {
+            await axios.get("https://edudev-server-blush.vercel.app/blogs?limit=4").then((result) => {
                 setPosts(result.data);
             }).catch(err => console.log(err));
         };
@@ -39,7 +39,7 @@ function Blogviewer() {
 
     async function Loadcomments() {
         try {
-            const res = await axios.get("https://edudev-server-1.onrender.com/load_comments?blogId=" + id);
+            const res = await axios.get("https://edudev-server-blush.vercel.app/load_comments?blogId=" + id);
             if (res.status === 200) {
                 setData({ ...data, comments: res.data });
             }
@@ -56,7 +56,7 @@ function Blogviewer() {
     const handle_Comment = async () => {
         try {
             if (comment !== "") {
-                const res = await axios.post(`https://edudev-server-1.onrender.com/writeComment?token=${localStorage.getItem("token")}&blogId=${data._id}`, { commented_content: comment });
+                const res = await axios.post(`https://edudev-server-blush.vercel.app/writeComment?token=${localStorage.getItem("token")}&blogId=${data._id}`, { commented_content: comment });
                 if (res.status == 201) {
                     toast.success("comment added successfully");
                     setComment("");
@@ -74,7 +74,7 @@ function Blogviewer() {
             toast.error("internal sever error occured")
         }
     }
-    
+
     return (
         <div className='blogviewer'>
             <Navbar />
@@ -141,7 +141,7 @@ function Blogviewer() {
                     {Array.isArray(data.comments) && data.comments.map((item) => {
                         return <Comment_Temp name={item.commenter_details.name} blogid={data._id} set_data={setData} data={data} liked_people={item.liked_users} id={item._id} likes={item.likes} commented_text={item.commented_content} posted_date={format(new Date(item.createdAt), "dd eeee yyyy")} key={item._id} img={item.commenter_details.dp} />
                     })}
-                    {Array.isArray(data.comments)&&data.comments.length===0&&"No comments till now"}
+                    {Array.isArray(data.comments) && data.comments.length === 0 && "No comments till now"}
 
                 </div>
 

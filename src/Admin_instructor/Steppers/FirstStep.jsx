@@ -33,7 +33,7 @@ function FirstStep({ completed }) {
             if (localStorage.getItem('course_id')) {
                 let courseId = localStorage.getItem("course_id");
                 // course_id(courseId);
-                await fetch(`https://edudev-server-1.onrender.com/get_course_details?id=${courseId}`).then((data) => {
+                await fetch(`https://edudev-server-blush.vercel.app/get_course_details?id=${courseId}`).then((data) => {
                     if (data.status === 200) {
                         data.json().then(d => {
                             dispatch({ type: 'total_update', payload: d });
@@ -84,7 +84,7 @@ function FirstStep({ completed }) {
         if (thumbnail) {
             let data = new FormData()
             data.append("file", thumbnail);
-            const res = await axios.post("https://edudev-server-1.onrender.com/upload-course-thumbnail", data);
+            const res = await axios.post("https://edudev-server-blush.vercel.app/upload-course-thumbnail", data);
             if (res.status === 200) {
                 toast.success("uploaded thubnail");
             }
@@ -125,8 +125,8 @@ function FirstStep({ completed }) {
             const requestBody = JSON.stringify({ ...state });
             let loading = toast.loading("creating the course");
             // Send the data to the API using the fetch function
-            const update_url = `https://edudev-server-1.onrender.com/update-course?id="${localStorage.getItem("course_id")}`;
-            const posting_url = `https://edudev-server-1.onrender.com/create-course?token=${localStorage.getItem("instructor-token")}`;
+            const update_url = `https://edudev-server-blush.vercel.app/update-course?id="${localStorage.getItem("course_id")}`;
+            const posting_url = `https://edudev-server-blush.vercel.app/create-course?token=${localStorage.getItem("instructor-token")}`;
             const response = await axios.post(saved ? update_url : posting_url, requestBody, {
                 withCredentials: true,
                 headers: {

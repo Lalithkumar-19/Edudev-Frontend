@@ -84,7 +84,7 @@ function Online_Course_overview() {
     useEffect(() => {
         async function get_course_Details() {
             console.log("invoked...");
-            await axios.get("https://edudev-server-1.onrender.com/get_single_course?id=" + params.id,).then(data => {
+            await axios.get("https://edudev-server-blush.vercel.app/get_single_course?id=" + params.id,).then(data => {
                 setCourse(data.data[0]);
             }).catch(err => {
                 console.log(err);
@@ -115,7 +115,7 @@ function Online_Course_overview() {
     const Buy_the_course = async () => {
         try {
             if (localStorage.getItem("token") && localStorage.getItem("userdata")) {
-                const res = await axios.post('https://edudev-server-1.onrender.com/Buy_a_course_checkout', { name: "web development", id: course._id, userId: localStorage.getItem("id"), price: course.course_price, course_id: course._id });
+                const res = await axios.post('https://edudev-server-blush.vercel.app/Buy_a_course_checkout', { name: "web development", id: course._id, userId: localStorage.getItem("id"), price: course.course_price, course_id: course._id });
                 const stripe = await stripePromise;
                 await stripe.redirectToCheckout({ sessionId: res.data.id });
             } else {
@@ -185,7 +185,7 @@ function Online_Course_overview() {
 
                             <div className='course_video_layout'>
 
-                                <video src={course.course_intro_video ? "https://edudev-server-1.onrender.com/" + course.course_intro_video : videodemo} controls className='video' width={"90%"} height={"200px"} />
+                                <video src={course.course_intro_video ? "https://edudev-server-blush.vercel.app/" + course.course_intro_video : videodemo} controls className='video' width={"90%"} height={"200px"} />
                                 {
                                     Array.isArray(courses) && courses.some((it) => it._id === course._id) ? (
                                         <button className='buy_now_button buttons' onClick={() => navigate(`/courseplayer/${params.id}`)} style={{ marginTop: "10px" }}>
@@ -208,7 +208,7 @@ function Online_Course_overview() {
                                     <span className='course_meta_icon'><TimerRounded />
                                         <span className='course_meta_item_name'>Duration</span>
                                     </span>
-                                    <span className='meta_value'>{(course.course_duration&&course.course_duration.length)} {course.course_duration&&course.course_duration.field}</span>
+                                    <span className='meta_value'>{(course.course_duration && course.course_duration.length)} {course.course_duration && course.course_duration.field}</span>
 
                                 </div>
                             </div>

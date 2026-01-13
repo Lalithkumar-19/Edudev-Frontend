@@ -26,7 +26,7 @@ function Checkoutpage() {
 
 
     const handlecheckout = async () => {
-        const res = await axios.post('https://edudev-server-1.onrender.com/checkout', { cartItems: cartData, userId: localStorage.getItem("id") });
+        const res = await axios.post('https://edudev-server-blush.vercel.app/checkout', { cartItems: cartData, userId: localStorage.getItem("id") });
         const stripe = await stripePromise;
         await stripe.redirectToCheckout({ sessionId: res.data.id });
 

@@ -18,7 +18,7 @@ function Course_card_line_align({ item }) {
             <div className='course_card_align_two_details'>
                 <div className='course_creator_main_details'>
                     <div className="course_creator_pic_div">
-                        <img src={"https://edudev-server-1.onrender.com/" + item.creator.instructor_pic} alt="creator_pic" width={"100%"} height={"100%"} style={{ borderRadius: "100%" }} />
+                        <img src={"https://edudev-server-blush.vercel.app/" + item.creator.instructor_pic} alt="creator_pic" width={"100%"} height={"100%"} style={{ borderRadius: "100%" }} />
                     </div>
 
                     <span className='creator_name'>{item.creator.instructor_name}</span>

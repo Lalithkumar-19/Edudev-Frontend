@@ -21,7 +21,7 @@ function Reviewpage({ id, reviews }) {
             if (localStorage.getItem("token") && localStorage.getItem("userdata")) {
 
                 try {
-                    await axios.post(`https://edudev-server-1.onrender.com/add_course_review?id=${id}&token=${localStorage.getItem("token")} `, data, {
+                    await axios.post(`https://edudev-server-blush.vercel.app/add_course_review?id=${id}&token=${localStorage.getItem("token")} `, data, {
                         withCredentials: true,
                     }).then((res) => {
                         if (res.status === 200) {
@@ -64,7 +64,7 @@ function Reviewpage({ id, reviews }) {
                     <span style={{ fontSize: "30px", textAlign: "center" }} className='rating_number'>4.7</span>
                     <p style={{ marginTop: "2px" }}> ⭐⭐⭐⭐⭐
                         <br />
-                        ({Array.isArray(reviews)&&reviews.length} Reviews)
+                        ({Array.isArray(reviews) && reviews.length} Reviews)
                     </p>
 
                 </section>
@@ -109,7 +109,7 @@ function Reviewpage({ id, reviews }) {
 
                     {
                         reviews && Array.isArray(reviews) && reviews.map((item, i) => {
-                            if (i !== (review_limit-1)) {
+                            if (i !== (review_limit - 1)) {
                                 return (
                                     <div className='student_reviews_left_box' key={i}>
                                         <p>{item.review_content}</p>
@@ -132,7 +132,7 @@ function Reviewpage({ id, reviews }) {
 
                 </section>
                 <div className='all_Reviews'>
-                    <button className='click_button' onClick={()=>{setLimit(review_limit+5)}}>
+                    <button className='click_button' onClick={() => { setLimit(review_limit + 5) }}>
                         Load more <span><TrendingUp /></span>
                     </button>
 

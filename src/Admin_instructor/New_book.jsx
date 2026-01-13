@@ -59,7 +59,7 @@ function New_book() {
             data.append("Author", Author);
 
 
-            await fetch(`https://edudev-server-1.onrender.com/addnew_book?token=${localStorage.getItem("instructor-token")}`, {
+            await fetch(`https://edudev-server-blush.vercel.app/addnew_book?token=${localStorage.getItem("instructor-token")}`, {
                 method: "POST",
                 body: data,
             }).then((succ) => {

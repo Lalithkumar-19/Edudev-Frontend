@@ -6,7 +6,7 @@ function OrdersShowing_page() {
     const [Orders, setOrders] = useState([]);
     const Change_delivery_status = async (id, status) => {
         try {
-            const res = await axios.put(`https://edudev-server-1.onrender.com/Change_order_status?token=${localStorage.getItem("admin_token")}`, { id: id, delivery_status: status });
+            const res = await axios.put(`https://edudev-server-blush.vercel.app/Change_order_status?token=${localStorage.getItem("admin_token")}`, { id: id, delivery_status: status });
             if (res.status === 200) {
                 Fetch_all_orders();
                 toast.success("Delivery status changed successfully");
@@ -22,7 +22,7 @@ function OrdersShowing_page() {
     }
     const Fetch_all_orders = async () => {
         try {
-            const res = await axios.get(`https://edudev-server-1.onrender.com/Get_all_orders_Admin?token=${localStorage.getItem("admin_token")}`);
+            const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_all_orders_Admin?token=${localStorage.getItem("admin_token")}`);
             if (res.status === 200) {
                 setOrders(res.data);
                 console.log("admin", res.data);

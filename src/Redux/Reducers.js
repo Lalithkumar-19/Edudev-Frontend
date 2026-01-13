@@ -5,7 +5,7 @@ const initialState = {
     cart: [],
     wishList: [],
     orders: [],
-    My_learnings:[],
+    My_learnings: [],
     cartsum: 0,
     userpresence: false,
 };
@@ -17,7 +17,7 @@ const updateCart = async (cart, id) => {
             return cart.some(item => item.product_details._id === id);
         };
         if (isInCart() === false) {
-            const res = await axios.put("https://edudev-server-1.onrender.com/addtocart?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
+            const res = await axios.put("https://edudev-server-blush.vercel.app/addtocart?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
             if (res.status === 200) {
                 console.log("Add to cart data", res.data);
                 GetUser_details();
@@ -42,7 +42,7 @@ const addToWishList = async (list, id) => {
             return list.some(item => item._id === id);
         };
         if (isInlist() === false) {
-            const res = await axios.put("https://edudev-server-1.onrender.com/addtowishlist?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
+            const res = await axios.put("https://edudev-server-blush.vercel.app/addtowishlist?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
             if (res.status === 200) {
                 console.log("Add to wishlist ", res.data);
                 GetUser_details();
@@ -65,7 +65,7 @@ const Remove_From_Cart = async (cart, id) => {
             return cart.some(item => item._id === id);
         };
         if (isInCart() === true) {
-            const res = await axios.put("https://edudev-server-1.onrender.com/Remove_cart_item?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
+            const res = await axios.put("https://edudev-server-blush.vercel.app/Remove_cart_item?token=" + localStorage.getItem("token"), { id: id, quantity: 0 });
             if (res.status === 200) {
                 GetUser_details();
             } else {
@@ -90,7 +90,7 @@ const Remove_From_WishList = async (list, id) => {
             return list.some(item => item._id === id);
         };
         if (isInlist() === true) {
-            const res = await axios.put("https://edudev-server-1.onrender.com/Remove_widhlist_item?token=" + localStorage.getItem("token"), { id: id });
+            const res = await axios.put("https://edudev-server-blush.vercel.app/Remove_widhlist_item?token=" + localStorage.getItem("token"), { id: id });
             if (res.status === 200) {
                 console.log("deleted from list ");
                 GetUser_details();
@@ -111,7 +111,7 @@ const Remove_From_WishList = async (list, id) => {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "User_cart_wishlist":
-            return { ...state, cart: action.payload.cart, wishList: action.payload.Wishlist, orders: action.payload.orders,My_learnings:action.payload.learnings};
+            return { ...state, cart: action.payload.cart, wishList: action.payload.Wishlist, orders: action.payload.orders, My_learnings: action.payload.learnings };
         case 'ADD_TO_CART':
             updateCart(state.cart, action.payload.id);
             return state;

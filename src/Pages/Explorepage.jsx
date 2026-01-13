@@ -10,9 +10,9 @@ import { useNavigate } from 'react-router-dom';
 
 function Explorepage() {
     const [data, setData] = useState([]);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     async function Fetch_categories() {
-        const res = await axios.get("https://edudev-server-1.onrender.com/Get_all_categories");
+        const res = await axios.get("https://edudev-server-blush.vercel.app/Get_all_categories");
         if (res.status === 200) {
             setData(res.data);
         }
@@ -65,7 +65,7 @@ function Explorepage() {
                 <div className='categotyitem_box'>
                     {data.length > 0 && Array.isArray(data) && data.map((item, i) => {
                         return (
-                            <div className='categoty_item item_1' key={i} onClick={()=>navigate(`course_list/${item.name}`)}>
+                            <div className='categoty_item item_1' key={i} onClick={() => navigate(`course_list/${item.name}`)}>
                                 <img src="https://e7.pngegg.com/pngimages/651/48/png-clipart-web-development-responsive-web-design-web-developer-software-developer-outgoing-web-design-logo.png" alt='course_logo' />
                                 <div className='categoryitem_course_details'>
                                     <span style={{ fontWeight: "600" }}>{item.name}</span>

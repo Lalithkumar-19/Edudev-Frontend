@@ -13,7 +13,7 @@ function Cartpage() {
 
     async function GetUser_details() {
         try {
-            const res = await axios.get("https://edudev-server-1.onrender.com/get_user_cart_wishlist?token=" + localStorage.getItem("token"));
+            const res = await axios.get("https://edudev-server-blush.vercel.app/get_user_cart_wishlist?token=" + localStorage.getItem("token"));
             if (res.status === 200) {
                 dispatch({ type: "User_cart_wishlist", payload: res.data });
                 dispatch({ type: "Update_cart_length", payload: Array.isArray(res.data) ? res.data.length : 0 });

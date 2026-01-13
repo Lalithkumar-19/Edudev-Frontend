@@ -13,7 +13,7 @@ export default function UserList({ setselected }) {
 
   const Fetch_All_Users = async () => {
     try {
-      const res = await axios.get(`https://edudev-server-1.onrender.com/get_all_users?token=${localStorage.getItem("admin_token")}`);
+      const res = await axios.get(`https://edudev-server-blush.vercel.app/get_all_users?token=${localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         const row_data = res.data.map((item, index) => ({
           ...item,
@@ -36,7 +36,7 @@ export default function UserList({ setselected }) {
 
   const handleDelete = async (id) => {
     try {
-      let res = await axios.put(`https://edudev-server-1.onrender.com/delete_single_user?id=${id}&token=${localStorage.getItem("admin_token")}`);
+      let res = await axios.put(`https://edudev-server-blush.vercel.app/delete_single_user?id=${id}&token=${localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         toast.success("deleted successfully");
         setData(data.filter((item) => item._id !== id));
@@ -59,7 +59,7 @@ export default function UserList({ setselected }) {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={"https://edudev-server-1.onrender.com/" + params.row.dp} alt="" />
+            <img className="userListImg" src={"https://edudev-server-blush.vercel.app/" + params.row.dp} alt="" />
             {params.row.name}
           </div>
         );

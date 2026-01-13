@@ -15,7 +15,7 @@ function About_instructor() {
     const [data, setData] = useState(null);
     const Fetch_Instructor_data = async () => {
         try {
-            const res = await axios.get("https://edudev-server-1.onrender.com/fetch_one_ins?id=" + params.id);
+            const res = await axios.get("https://edudev-server-blush.vercel.app/fetch_one_ins?id=" + params.id);
             if (res.status === 200) {
                 setData(res.data)
             }
@@ -28,7 +28,7 @@ function About_instructor() {
     }, [])
     useEffect(() => {
         async function Load_data() {
-            await axios.get("https://edudev-server-1.onrender.com/get_all_courses").then((data) => {
+            await axios.get("https://edudev-server-blush.vercel.app/get_all_courses").then((data) => {
                 console.log(data.data);
                 setCourses([...data.data]);
             })
@@ -53,7 +53,7 @@ function About_instructor() {
 
                             <div className="about_instructor_card">
                                 <div className="instructor_pic">
-                                    <img src={"https://edudev-server-1.onrender.com/" + data.instructor_pic} width={"100%"} style={{ borderRadius: "20px" }} height={"100%"} alt="instructor_profile" />
+                                    <img src={"https://edudev-server-blush.vercel.app/" + data.instructor_pic} width={"100%"} style={{ borderRadius: "20px" }} height={"100%"} alt="instructor_profile" />
                                 </div>
                                 <div className="about_instructor_details">
                                     <div className="about_instructor_details_item">
@@ -96,9 +96,9 @@ function About_instructor() {
                                 <div className="follow_me_div">
                                     <div className="follow_me">
                                         <span className="follow_me_title">Follow Me:</span>
-                                        <span className="fb_link" ><a href={data.social_media.facebook?data.social_media.facebook:"#"}><FacebookOutlined /></a></span>
-                                        <span className="twitter_link"><a href={data.social_media.twitter?data.social_media.twitter:"#"}><Twitter /></a></span>
-                                        <span className="linkedin_link"><a href={data.social_media.LinkedIn?data.social_media.LinkedIn:"#"}><LinkedIn /></a></span>
+                                        <span className="fb_link" ><a href={data.social_media.facebook ? data.social_media.facebook : "#"}><FacebookOutlined /></a></span>
+                                        <span className="twitter_link"><a href={data.social_media.twitter ? data.social_media.twitter : "#"}><Twitter /></a></span>
+                                        <span className="linkedin_link"><a href={data.social_media.LinkedIn ? data.social_media.LinkedIn : "#"}><LinkedIn /></a></span>
                                     </div>
                                 </div>
                             </div>
@@ -166,13 +166,13 @@ function About_instructor() {
                                     })
 
                                 }
-                               
+
                             </div>
                         </section>
 
                     </div>
                 )}
-                {!data&&<CircularProgress/>}
+            {!data && <CircularProgress />}
             <section className="more_courses_by_author">
                 <h1 className="more_courses_title_head" style={{ textAlign: "center" }}>More Courses to learn</h1>
                 <div className="courses">

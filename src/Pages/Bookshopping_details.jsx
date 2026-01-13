@@ -14,7 +14,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 function Bookshopping_details() {
     const params = useParams();
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     const [Screen_small, setScreen_small] = useState(false);
     useEffect(() => {
         if (window.innerWidth <= 600) {
@@ -30,7 +30,7 @@ function Bookshopping_details() {
 
     useEffect(() => {
         async function Fetch_Books() {
-            const res = await axios.get("https://edudev-server-1.onrender.com/Get_single_book?id=" + params.id);
+            const res = await axios.get("https://edudev-server-blush.vercel.app/Get_single_book?id=" + params.id);
             if (res.status === 200) {
                 setBook(res.data);
                 setPics([...res.data.book_pics])
@@ -121,7 +121,7 @@ function Bookshopping_details() {
     return (
         <div className='bookshopping_details'>
             <Navbar />
-            <Toaster position='top-right'/>
+            <Toaster position='top-right' />
 
             <section className='bookshopping_details_header_part'>
                 <h1 style={{ marginLeft: "0px", marginBottom: "3px" }}>Book Shop Detailes</h1>
@@ -216,7 +216,7 @@ function Bookshopping_details() {
                                 +
                             </span>
                         </div>
-                        <button className='add_to_cart' onClick={()=>addtocart()}>
+                        <button className='add_to_cart' onClick={() => addtocart()}>
                             <span className='shopping_icon'>
                                 <ShoppingCart />
                             </span> Add to Cart
@@ -230,7 +230,7 @@ function Bookshopping_details() {
                             Add To Wishlist
                         </span>
 
-                        <span className='share_button'onClick={()=>{navigator.share({title:"Edudev Book",url:location.href})}}>
+                        <span className='share_button' onClick={() => { navigator.share({ title: "Edudev Book", url: location.href }) }}>
                             <span className='share_icon'>
                                 <ShareIcon />
                             </span>

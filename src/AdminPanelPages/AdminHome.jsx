@@ -10,7 +10,7 @@ export default function AdminHome() {
 
   const Fetch_Users_per_month = async () => {
     try {
-      const res = await axios.get(`https://edudev-server-1.onrender.com/Get_Users_per_month?token=${localStorage.getItem("admin_token")}`);
+      const res = await axios.get(`https://edudev-server-blush.vercel.app/Get_Users_per_month?token=${localStorage.getItem("admin_token")}`);
       if (res.status === 200) {
         setData(res.data);
       }

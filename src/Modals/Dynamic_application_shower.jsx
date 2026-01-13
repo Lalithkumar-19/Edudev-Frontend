@@ -39,7 +39,7 @@ export default function Dynamic_application_shower() {
 
     useEffect(() => {
         const fetchdetails = async () => {
-            await fetch(`https://edudev-server-1.onrender.com/get_single_instructor_application?id=${params.id}`, {
+            await fetch(`https://edudev-server-blush.vercel.app/get_single_instructor_application?id=${params.id}`, {
                 method: "GET"
             })
                 .then((res) => res.json())

@@ -54,9 +54,9 @@ export default function Instructor_Modal() {
         // base64();
 
         try {
-            const response = await axios.post('https://edudev-server-1.onrender.com/apply-instructor', formData);
+            const response = await axios.post('https://edudev-server-blush.vercel.app/apply-instructor', formData);
             console.log('Instructor application submitted successfully:', response.data);
-            toast.success("Application is submitted successfully, we will mail you within one day,you can login using your email and password as intructor to create courses",{duration:"100"});
+            toast.success("Application is submitted successfully, we will mail you within one day,you can login using your email and password as intructor to create courses", { duration: "100" });
             setOpen(false);
             // Optionally, you can handle success in your UI or redirect to a success page
         } catch (error) {

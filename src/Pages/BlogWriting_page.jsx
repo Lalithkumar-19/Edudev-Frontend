@@ -76,7 +76,7 @@ const BlogEditor = () => {
                     formdata.append(`categories`, item);
                 });
 
-                const response = await axios.post(`https://edudev-server-1.onrender.com/postblog?token=${localStorage.getItem("token")}`, formdata)
+                const response = await axios.post(`https://edudev-server-blush.vercel.app/postblog?token=${localStorage.getItem("token")}`, formdata)
                 if (response.status === 200) {
                     toast.success("Blog published successfully!");
                     setLoading(false);
