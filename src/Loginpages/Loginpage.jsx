@@ -23,15 +23,45 @@ function Loginpage() {
 
     // Forgot Password State
     const [forgotPassword, setForgotPassword] = useState(false);
+    const [otpSent, setOtpSent] = useState(false);
+    const [otp, setOtp] = useState("");
+    const [newPassword, setNewPassword] = useState("");
 
-    const handleResetPassword = () => {
+    const handleForgotPassword = async () => {
         if (!email) {
             toast.error("Please enter your email");
             return;
         }
-        // Mock logic for sending reset link
-        toast.success("Reset link sent! Please check your email.");
-        setTimeout(() => setForgotPassword(false), 3000);
+        try {
+            const res = await axios.post("https://edudev-server-blush.vercel.app/forgot-password", { email });
+            if (res.status === 200) {
+                toast.success(res.data.message);
+                setOtpSent(true);
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Failed to send OTP");
+        }
+    };
+
+    const handleResetPassword = async () => {
+        if (!otp || !newPassword) {
+            toast.error("Please enter OTP and new password");
+            return;
+        }
+        try {
+            const res = await axios.post("https://edudev-server-blush.vercel.app/reset-password", { email, otp, newPassword });
+            if (res.status === 200) {
+                toast.success(res.data.message);
+                setTimeout(() => {
+                    setForgotPassword(false);
+                    setOtpSent(false);
+                    setOtp("");
+                    setNewPassword("");
+                }, 2000);
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Failed to reset password");
+        }
     };
 
 
@@ -125,21 +155,46 @@ function Loginpage() {
                     {forgotPassword ? (
                         <form className='login_form' onSubmit={(e) => e.preventDefault()}>
                             <h1 className='login_form_title'>Reset Password</h1>
-                            <p className='login_form_sub_title'>Enter your email to receive a reset link</p>
+                            <p className='login_form_sub_title'>{otpSent ? "Enter OTP and New Password" : "Enter your email to receive a reset link"}</p>
 
-                            <label className='login_label'>Email</label>
-                            <input
-                                type='email'
-                                className='login_inputs'
-                                placeholder='  ✉ Example@gmail.com'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                            {!otpSent ? (
+                                <>
+                                    <label className='login_label'>Email</label>
+                                    <input
+                                        type='email'
+                                        className='login_inputs'
+                                        placeholder='  ✉ Example@gmail.com'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <span className='Login_button' onClick={handleForgotPassword}>Send OTP</span>
+                                </>
+                            ) : (
+                                <>
+                                    <label className='login_label'>OTP</label>
+                                    <input
+                                        type='text'
+                                        className='login_inputs'
+                                        placeholder='  Enter 6 digit OTP'
+                                        value={otp}
+                                        onChange={(e) => setOtp(e.target.value)}
+                                    />
 
-                            <span className='Login_button' onClick={handleResetPassword}>Send Reset Link</span>
+                                    <label className='login_label'>New Password</label>
+                                    <input
+                                        type='password'
+                                        className='login_inputs'
+                                        placeholder='  New Password'
+                                        value={newPassword}
+                                        onChange={(e) => setNewPassword(e.target.value)}
+                                    />
+                                    <span className='Login_button' onClick={handleResetPassword}>Reset Password</span>
+                                </>
+                            )}
+
 
                             <div className='new_account'>
-                                <span className='create_new' onClick={() => setForgotPassword(false)} style={{ color: "coral", cursor: "pointer", marginLeft: 0 }}>
+                                <span className='create_new' onClick={() => { setForgotPassword(false); setOtpSent(false); }} style={{ color: "coral", cursor: "pointer", marginLeft: 0 }}>
                                     ← Back to Login
                                 </span>
                             </div>
